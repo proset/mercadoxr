@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XR Market Intelligence - Analytics & Strategy Dashboard</title>
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 for modern tech icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS v3 via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- ApexCharts via CDN for fluid interactive graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <!-- Custom Tailwind Configuration for Cyber-Spatial Aesthetic -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        darkbg: '#030712',
+                        darkcard: 'rgba(17, 24, 39, 0.65)',
+                        cyantech: '#22d3ee',
+                        purpletech: '#a855f7',
+                        fuchsiatech: '#d946ef',
+                        slatebody: '#cbd5e1', /* Lighter slate color for better contrast/readability */
+                    },
+                    boxShadow: {
+                        'glow-cyan': '0 0 15px rgba(34, 211, 238, 0.35)',
+                        'glow-purple': '0 0 15px rgba(168, 85, 247, 0.35)',
+                        'glow-fuchsia': '0 0 15px rgba(217, 70, 239, 0.35)',
+                        'glass': 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Modern Scrollbar styling matching dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 9999px;
+            border: 2px solid #030712;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+
+        /* Glassmorphism custom classes */
+        .glass-panel {
+            background: rgba(11, 15, 25, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(34, 211, 238, 0.3);
+            background: rgba(17, 24, 39, 0.65);
+        }
+
+        /* Ambient Cyber Glow Background elements */
+        .cyber-glow-cyan {
+            position: absolute;
+            width: 35vw;
+            height: 35vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, rgba(34, 211, 238, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cyber-glow-purple {
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.07) 0%, rgba(168, 85, 247, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Timeline and animation properties */
+        .timeline-line {
+            background: linear-gradient(to bottom, #22d3ee, #a855f7, #d946ef);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, #a3e635 60%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cyan-purple-gradient {
+            background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid #22d3ee;
+            color: #22d3ee;
+            text-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-white min-h-screen overflow-x-hidden relative font-sans antialiased">
+
+    <!-- BACKGROUND GLOWS -->
+    <div class="cyber-glow-cyan top-[-10vw] left-[-5vw]"></div>
+    <div class="cyber-glow-purple top-[40vh] right-[-10vw]"></div>
+    <div class="cyber-glow-cyan bottom-[-10vw] left-[20vw]"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-6">
+
+        <!-- HEADER BANNER -->
+        <header class="glass-panel rounded-xl p-5 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 shadow-glow-cyan/5">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cyantech to-purpletech flex items-center justify-center shadow-glow-cyan flex-shrink-0">
+                    <i class="fa-solid fa-cubes-stacked text-xl text-darkbg font-extrabold"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyantech bg-clip-text text-transparent">
+                        METAVERSO INDUSTRIAL &amp; MERCADO XR
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-300 font-medium tracking-wide mt-0.5">
+                        Sintetizador Estratégico de Inteligencia de Mercado | Datos Consolidados NotebookLM
+                    </p>
+                </div>
+            </div>
+            <!-- Interactive Live Status Node -->
+            <div class="flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-700 text-xs font-bold shadow-glow-cyan/10">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyantech opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyantech"></span>
+                </span>
+                <span class="font-mono text-slate-200 tracking-wider">INTELLIGENCE NODE ACTIVE</span>
+            </div>
+        </header>
+
+        <!-- FLOATING DYNAMIC NAVIGATION TABS -->
+        <nav class="glass-panel sticky top-4 z-50 rounded-xl p-1.5 mb-6 shadow-lg flex overflow-x-auto whitespace-nowrap gap-1 border-slate-700">
+            <button onclick="switchTab('tab-mercado')" id="btn-tab-mercado" class="tab-btn active px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center gap-2 hover:bg-slate-900/60 text-slate-200">
+                <i class="fa-solid fa-chart-line"></i> Datos de Mercado
+            </button>
+            <button onclick="switchTab('tab-tecnologias')" id="btn-tab-tecnologias" class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center gap-2 hover:bg-slate-900/60 text-slate-200">
+                <i class="fa-solid fa-microchip"></i> Fichas Tecnologías
+            </button>
+            <button onclick="switchTab('tab-impacto')" id="btn-tab-impacto" class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center gap-2 hover:bg-slate-900/60 text-slate-200">
+                <i class="fa-solid fa-earth-americas"></i> Impacto Social
+            </button>
+            <button onclick="switchTab('tab-negocio')" id="btn-tab-negocio" class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center gap-2 hover:bg-slate-900/60 text-slate-200">
+                <i class="fa-solid fa-briefcase"></i> ROI &amp; Negocio
+            </button>
+            <button onclick="switchTab('tab-futuro')" id="btn-tab-futuro" class="tab-btn px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold flex items-center gap-2 hover:bg-slate-900/60 text-slate-200">
+                <i class="fa-solid fa-hourglass-half"></i> Futuro &amp; Retos
+            </button>
+        </nav>
+
+        <!-- SECTION 1: DATOS DE MERCADO -->
+        <section id="tab-mercado" class="tab-content transition-all duration-300">
+            <!-- Top KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-xl p-4.5 shadow-md relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-cyantech text-7xl">
+                        <i class="fa-solid fa-vr-cardboard"></i>
+                    </div>
+                    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Mercado Global XR Combined</p>
+                    <div class="flex items-baseline gap-1.5 mt-1.5">
+                        <span class="text-2xl font-black text-cyantech tracking-tight">$200.87B</span>
+                        <span class="text-xs font-bold text-emerald-400 flex items-center gap-0.5"><i class="fa-solid fa-arrow-trend-up"></i> +236%</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-2 font-medium leading-relaxed">Valor proyectado a 2030 ($59.75B en 2024)</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card rounded-xl p-4.5 shadow-md relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-purpletech text-7xl">
+                        <i class="fa-solid fa-users-rays"></i>
+                    </div>
+                    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Mercado del Metaverso</p>
+                    <div class="flex items-baseline gap-1.5 mt-1.5">
+                        <span class="text-2xl font-black text-white tracking-tight">$669.96B</span>
+                        <span class="text-xs font-bold text-emerald-400 flex items-center gap-0.5"><i class="fa-solid fa-arrow-trend-up"></i> +473%</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-2 font-medium leading-relaxed">Proyectado para 2029 | CAGR de 41.83%</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card rounded-xl p-4.5 shadow-md relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-fuchsiatech text-7xl">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">CAGR Proyectado Líder</p>
+                    <div class="flex items-baseline gap-1.5 mt-1.5">
+                        <span class="text-2xl font-black text-fuchsiatech tracking-tight">45.34%</span>
+                        <span class="text-xs font-bold text-cyan-400">Realidad Mixta</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-2 font-medium leading-relaxed">MR crece de $4.04B (2024) a $26.20B (2029)</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass-card rounded-xl p-4.5 shadow-md relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-cyantech text-7xl">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+                    <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">LinkedIn Buzz Index</p>
+                    <div class="flex items-baseline gap-1.5 mt-1.5">
+                        <span class="text-2xl font-black text-cyantech tracking-tight">92.4%</span>
+                        <span class="text-xs font-bold text-emerald-400">Pico Máximo</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-2 font-medium leading-relaxed">Conversación impulsada por Apple Vision Pro &amp; Quest 3</p>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Evolution Time Chart -->
+                <div class="glass-panel rounded-xl p-5 lg:col-span-2 shadow-lg border-slate-700">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-chart-line text-cyantech"></i> Evolución Temporal de Ingresos XR Proyectados (USD B)
+                            </h3>
+                            <p class="text-xs text-slate-400 mt-1 font-medium">Crecimiento estimado año por año por segmentos tecnológicos (2024 - 2029)</p>
+                        </div>
+                        <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-xxs text-cyantech font-mono font-bold uppercase tracking-wider">Consolidado Mundial</span>
+                    </div>
+                    <div id="chart-growth" class="min-h-[320px]"></div>
+                </div>
+
+                <!-- Engagement Comparison Card -->
+                <div class="glass-panel rounded-xl p-5 shadow-lg border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                                    <i class="fa-brands fa-linkedin text-indigo-400"></i> LinkedIn Buzz Index
+                                </h3>
+                                <p class="text-xs text-slate-400 mt-1 font-medium">Menciones y engagement social relativo de la industria</p>
+                            </div>
+                        </div>
+                        <div id="chart-linkedin" class="min-h-[220px] flex items-center justify-center"></div>
+                    </div>
+                    <div class="p-3.5 rounded-lg bg-slate-950/80 border border-slate-800 mt-3">
+                        <h4 class="text-xs font-bold text-slate-450 uppercase tracking-wider mb-1.5">Métricas de Conversación Clave</h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                            La <strong>Realidad Mixta (MR)</strong> lidera el engagement social actual impulsada por el passthrough óptimo de Apple y Meta. Sin embargo, la <strong>Realidad Aumentada (AR)</strong> domina las menciones de aplicabilidad B2B y despliegues industriales masivos sin fricción.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: TECNOLOGÍAS (FICHAS TÉCNICAS) -->
+        <section id="tab-tecnologias" class="tab-content hidden transition-all duration-300">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <h2 class="text-xl sm:text-2xl font-black bg-gradient-to-r from-cyantech to-purpletech bg-clip-text text-transparent">FICHAS ESTRATÉGICAS DE TECNOLOGÍA XR</h2>
+                <p class="text-xs sm:text-sm text-slate-350 font-medium mt-2">Diferenciación y ventajas competitivas del ecosistema de Realidad Extendida analizado en nuestro cuaderno de investigación corporativo.</p>
+            </div>
+
+            <!-- symmetric cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- AR Card -->
+                <div class="glass-panel rounded-xl p-6 shadow-lg border-slate-700 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-cyan-500 to-cyan-300"></div>
+                    <div class="absolute -right-4 -top-4 opacity-5 text-cyan-400 text-8xl group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xxs font-bold text-cyantech uppercase tracking-wider px-2.5 py-1 rounded bg-cyantech/10 border border-cyantech/20 shadow-sm">Accesibilidad Sin Fricción</span>
+                        <div class="w-10 h-10 rounded-lg bg-cyan-950/50 border border-cyan-800/40 flex items-center justify-center text-base text-cyantech">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">AR (Realidad Aumentada)</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 font-normal">
+                        Superposición de datos 3D e información digital directamente sobre el campo visual del mundo físico, maximizando la interactividad física.
+                    </p>
+
+                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3 border-b border-slate-800 pb-1.5 flex items-center gap-1.5"><i class="fa-solid fa-crosshairs text-cyantech"></i> Enfoques Críticos de Negocio</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-350 font-normal leading-relaxed">
+                        <li class="flex items-start gap-2">
+                            <span class="text-cyantech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Despliegue WebAR:</strong> Acceso inmediato sin descarga de Apps nativas desde cualquier smartphone corporativo o de cliente.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cyantech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Hardware Liviano:</strong> Integración y soporte en gafas inteligentes ultraligeras de campo (ej. Epson BT, RealWear) para tareas prolongadas.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cyantech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Visualización de Subsuelos:</strong> Casos exitosos de Aguas de Valencia para mapeado de tuberías subterráneas en campo real.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VR Card -->
+                <div class="glass-panel rounded-xl p-6 shadow-lg border-slate-700 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-purple-500 to-purple-300"></div>
+                    <div class="absolute -right-4 -top-4 opacity-5 text-purple-400 text-8xl group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-vr-cardboard"></i>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xxs font-bold text-purpletech uppercase tracking-wider px-2.5 py-1 rounded bg-purpletech/10 border border-purpletech/20 shadow-sm">Inmersión Absoluta</span>
+                        <div class="w-10 h-10 rounded-lg bg-purple-950/50 border border-purple-800/40 flex items-center justify-center text-base text-purpletech">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">VR (Realidad Virtual)</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 font-normal">
+                        Aislamiento del entorno físico para introducir al usuario en una simulación 3D interactiva hiperrealista, controlada y libre de riesgos físicos.
+                    </p>
+
+                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3 border-b border-slate-800 pb-1.5 flex items-center gap-1.5"><i class="fa-solid fa-crosshairs text-purpletech"></i> Enfoques Críticos de Negocio</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-350 font-normal leading-relaxed">
+                        <li class="flex items-start gap-2">
+                            <span class="text-purpletech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Entrenamiento PRL Inmersivo:</strong> Capacitación en entornos de alta peligrosidad (fundición, alturas) sin riesgos operativos.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purpletech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Reducción de OPEX:</strong> Menor uso de materiales reales para formación, eliminando desplazamientos físicos de técnicos.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-purpletech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Simuladores Médicos:</strong> Caso de éxito <strong>Diálisis Patient Journey Simulator</strong> desarrollado con el Hospital de Bellvitge.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- MR Card -->
+                <div class="glass-panel rounded-xl p-6 shadow-lg border-slate-700 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-fuchsia-500 to-fuchsia-300"></div>
+                    <div class="absolute -right-4 -top-4 opacity-5 text-fuchsia-400 text-8xl group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xxs font-bold text-fuchsiatech uppercase tracking-wider px-2.5 py-1 rounded bg-fuchsiatech/10 border border-fuchsiatech/20 shadow-sm">Fusión de Espacios</span>
+                        <div class="w-10 h-10 rounded-lg bg-fuchsia-950/50 border border-fuchsia-800/40 flex items-center justify-center text-base text-fuchsiatech">
+                            <i class="fa-solid fa-circle-nodes"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">MR (Realidad Mixta)</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 font-normal">
+                        Interacción en tiempo real entre el entorno físico y elementos holográficos virtuales que interactúan y se anclan con la geometría del espacio real.
+                    </p>
+
+                    <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3 border-b border-slate-800 pb-1.5 flex items-center gap-1.5"><i class="fa-solid fa-crosshairs text-fuchsiatech"></i> Enfoques Críticos de Negocio</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-350 font-normal leading-relaxed">
+                        <li class="flex items-start gap-2">
+                            <span class="text-fuchsiatech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Passthrough Avanzado:</strong> Uso de cámaras de alta fidelidad exterior para superponer información (ej. Apple Vision Pro, Quest 3).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-fuchsiatech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Anclas Espaciales:</strong> Elementos virtuales que conservan su posición exacta y rotación en el espacio físico para varios operarios.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-fuchsiatech mt-1 flex-shrink-0"><i class="fa-solid fa-circle-check"></i></span>
+                            <span><strong>Entrenamiento Médico MR:</strong> Simulador de Diálisis Domiciliaria en Realidad Mixta con gemelo digital del equipo ($65.000/unidad).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: IMPACTO EN LA SOCIEDAD -->
+        <section id="tab-impacto" class="tab-content hidden transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Impact Box 1 -->
+                <div class="glass-panel rounded-xl p-5 border-slate-700 shadow-md">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-950/60 border border-emerald-800 flex items-center justify-center text-emerald-400 mb-3 text-lg">
+                        <i class="fa-solid fa-stethoscope"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Medicina y Salud</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 font-normal">
+                        Revolución en la preparación de pacientes y entrenamiento del personal médico en procedimientos críticos y de alta complejidad.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-emerald-950/30 rounded border border-emerald-900/40">
+                            <p class="text-xs font-bold text-emerald-300">Caso Diálisis Patient Journey</p>
+                            <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">El simulador VR desarrollado conjuntamente con IDIBELL y el Hospital de Bellvitge redujo drásticamente la ansiedad pre-tratamiento en pacientes nefrológicos.</p>
+                        </div>
+                        <div class="p-3 bg-emerald-950/30 rounded border border-emerald-900/40">
+                            <p class="text-xs font-bold text-emerald-300">Espacios Quirúrgicos Virtuales</p>
+                            <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">Colaboración virtual compartida para diseñar quirófanos. Médicos, ingenieros y contratistas posicionan elementos virtuales 3D antes de la obra civil real.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact Box 2 -->
+                <div class="glass-panel rounded-xl p-5 border-slate-700 shadow-md">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-950/60 border border-cyan-800 flex items-center justify-center text-cyan-400 mb-3 text-lg">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Educación y Aprendizaje</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 font-normal">
+                        El aprendizaje experiencial e inmersivo mejora exponencialmente las métricas tradicionales de asimilación de conocimiento.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-cyan-950/30 rounded border border-cyan-900/40 text-center">
+                            <span class="block text-3xl sm:text-4xl font-black text-cyan-400 tracking-tight">400%</span>
+                            <span class="text-xs font-bold text-white uppercase tracking-wider block mt-1">Mayor Retención</span>
+                            <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">Comparado con clases pasivas tradicionales basadas en la memorización clásica.</p>
+                        </div>
+                        <div class="p-3 bg-cyan-950/30 rounded border border-cyan-900/40">
+                            <p class="text-xs font-bold text-cyan-300">Proyecto Gamificado ZOOHHH!</p>
+                            <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">Juego holográfico 3D Looking Glass sin gafas para niños hospitalizados. Desarrollado con Sant Joan de Déu y el Zoo de Barcelona.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact Box 3 -->
+                <div class="glass-panel rounded-xl p-5 border-slate-700 shadow-md">
+                    <div class="w-10 h-10 rounded-lg bg-purple-950/60 border border-purple-800 flex items-center justify-center text-purple-400 mb-3 text-lg">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-2">Industria 4.0</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 font-normal">
+                        Integración profunda del "Digital Twin" con telemetría en tiempo real IoT (OPC-UA y MQTT) y simulación avanzada.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-purple-950/30 rounded border border-purple-900/40">
+                            <p class="text-xs font-bold text-purple-300">Simulación de Fluidos BMW (30x)</p>
+                            <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">Utilizando herramientas Xcelerator y NVIDIA, aceleraron las simulaciones aerodinámicas en un factor de 30x, reduciendo significativamente el consumo energético en R&amp;D.</p>
+                        </div>
+                        <div class="p-3 bg-purple-950/30 rounded border border-purple-900/40">
+                            <p class="text-xs font-bold text-purple-300">Mantenimiento Predictivo &amp; CO₂</p>
+                            <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">El soporte remoto AR evita el desplazamiento físico de ingenieros expertos en plantas solares, disminuyendo la huella de carbono operacional entre un 15-20%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUCCESS STORIES ACCORDION -->
+            <div class="glass-panel rounded-xl p-5 border-slate-700 shadow-lg">
+                <h3 class="text-sm sm:text-base font-bold text-white mb-4"><i class="fa-solid fa-award text-amber-400 text-xs"></i> Casos de Éxito de Innovación Industrial (WEF / NotebookLM)</h3>
+                
+                <div class="space-y-3">
+                    <!-- Accordion Item 1 -->
+                    <div class="border-b border-slate-800 pb-2">
+                        <button onclick="toggleAccordion('acc-bmw')" class="w-full flex justify-between items-center text-left py-2 font-bold text-xs sm:text-sm hover:text-cyantech transition-colors text-slate-200">
+                            <span>1. BMW Group &amp; NVIDIA Omniverse (Simulación de Fábricas completas)</span>
+                            <i id="icon-acc-bmw" class="fa-solid fa-chevron-down text-slate-450 text-xxs"></i>
+                        </button>
+                        <div id="content-acc-bmw" class="hidden mt-1.5 text-xs text-slate-300 leading-relaxed pl-4 border-l border-slate-700 font-normal">
+                            BMW utiliza gemelos digitales a escala real de sus plantas de producción antes de colocar un solo ladrillo o instalar maquinaria física. Los operarios y robots interactúan de forma cooperativa en el plano virtual virtualizando toda la cadena de suministro y flujo de materiales, logrando una reducción del <strong class="text-cyantech">70% en costos de diseño</strong> y <strong class="text-cyantech">78% de detección temprana de errores</strong> de planificación antes del despliegue final en campo real.
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 2 -->
+                    <div class="border-b border-slate-800 pb-2">
+                        <button onclick="toggleAccordion('acc-pepsi')" class="w-full flex justify-between items-center text-left py-2 font-bold text-xs sm:text-sm hover:text-cyantech transition-colors text-slate-200">
+                            <span>2. PepsiCo &amp; Siemens (Optimización de Flujo Logístico)</span>
+                            <i id="icon-acc-pepsi" class="fa-solid fa-chevron-down text-slate-450 text-xxs"></i>
+                        </button>
+                        <div id="content-acc-pepsi" class="hidden mt-1.5 text-xs text-slate-300 leading-relaxed pl-4 border-l border-slate-700 font-normal">
+                            La multinacional PepsiCo implementó un gemelo digital avanzado desarrollado con Siemens Xcelerator y NVIDIA para replicar las interacciones de sus almacenes y centros logísticos. El gemelo virtual simula dinámicas complejas y prevee hasta el <strong class="text-cyantech">90% de las colisiones en el flujo de materiales</strong> antes del inicio de cualquier cambio constructivo, optimizando de forma drástica el CAPEX del negocio.
+                        </div>
+                    </div>
+
+                    <!-- Accordion Item 3 -->
+                    <div class="pb-1">
+                        <button onclick="toggleAccordion('acc-astillero')" class="w-full flex justify-between items-center text-left py-2 font-bold text-xs sm:text-sm hover:text-cyantech transition-colors text-slate-200">
+                            <span>3. HD Hyundai (Diseño Naval Colaborativo)</span>
+                            <i id="icon-acc-astillero" class="fa-solid fa-chevron-down text-slate-450 text-xxs"></i>
+                        </button>
+                        <div id="content-acc-astillero" class="hidden mt-1.5 text-xs text-slate-300 leading-relaxed pl-4 border-l border-slate-700 font-normal">
+                            El líder en construcción naval de gran escala utiliza la combinación de computación 3D colaborativa y visualización avanzada para cargar en la nube modelos CAD masivos correspondientes al diseño de buques gigantes. Cientos de ingenieros repartidos globalmente pueden introducirse simultáneamente en el modelo virtual fotorrealista para realizar inspecciones críticas y validación técnica del layout y sistemas de soldadura sin requerir la visualización in situ en astilleros reales.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: OPORTUNIDADES DE NEGOCIO & ROI -->
+        <section id="tab-negocio" class="tab-content hidden transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <!-- Left Side: Monetization & ROI info -->
+                <div class="glass-panel rounded-xl p-5 border-slate-800 lg:col-span-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-sm sm:text-base font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-wallet text-emerald-400"></i> Modelos de Monetización XR
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <div class="text-emerald-400 mt-1 flex-shrink-0"><i class="fa-solid fa-cloud-arrow-up text-base"></i></div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-white">SaaS de Plataformas XR</h4>
+                                    <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">Cobro de licencias mensuales por acceso a la visualización inmersiva en la nube y actualización continua de telemetría IoT.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="text-emerald-400 mt-1 flex-shrink-0"><i class="fa-solid fa-screwdriver-wrench text-base"></i></div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-white">Desarrollo a Medida</h4>
+                                    <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">Proyectos corporativos "Turnkey" o llave en mano para integrar gemelos digitales y sistemas mecánicos CAD a formato inmersivo en 3D.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="text-emerald-400 mt-1 flex-shrink-0"><i class="fa-solid fa-brain text-base"></i></div>
+                                <div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-white">Consultoría de Spatial AI</h4>
+                                    <p class="text-xs text-slate-300 mt-1 font-normal leading-relaxed">Integración de algoritmos de Machine Learning y visión por computador para automatizar la colocación de anclas y predicción de fallos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-emerald-950/30 border border-emerald-900/50 rounded-lg mt-4">
+                        <h4 class="text-xs font-bold text-emerald-450 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+                            <i class="fa-solid fa-hand-holding-dollar"></i> Sectores con ROI Rápido
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                            Las empresas obtienen un retorno de inversión acelerado aplicando <strong>WebAR para acciones de Marketing interactivo</strong> (eliminando fricción de instalación) y <strong>capacitación virtual VR para PRL</strong>, reduciendo riesgos y mermas de capital.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Interactive Recommendation Widget -->
+                <div class="glass-panel rounded-xl p-5 border-slate-800 lg:col-span-2 shadow-glow-cyan/5">
+                    <h3 class="text-sm sm:text-base font-bold text-white mb-1.5 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-cyantech"></i> Matriz de Compatibilidad &amp; Recomendador de Inversión
+                    </h3>
+                    <p class="text-xs text-slate-400 mb-4 font-normal">Selecciona el presupuesto de tu empresa y el retorno de inversión esperado para recomendar la tecnología XR ideal.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <!-- Budget Input -->
+                        <div>
+                            <label class="block text-xxs font-bold uppercase tracking-wider text-slate-450 mb-1.5">Presupuesto Disponible (€)</label>
+                            <select id="select-budget" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-xs sm:text-sm font-bold text-white focus:outline-none focus:border-cyantech">
+                                <option value="bajo">Bajo (Menos de 15.000 €)</option>
+                                <option value="medio">Medio (15.000 € - 50.000 €)</option>
+                                <option value="alto">Alto (Más de 50.000 €)</option>
+                            </select>
+                        </div>
+
+                        <!-- ROI Input -->
+                        <div>
+                            <label class="block text-xxs font-bold uppercase tracking-wider text-slate-450 mb-1.5">Plazo de Retorno Esperado</label>
+                            <select id="select-roi" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-xs sm:text-sm font-bold text-white focus:outline-none focus:border-cyantech">
+                                <option value="rapido">Rápido (Menor a 6 meses)</option>
+                                <option value="medio">Medio (6 a 12 meses)</option>
+                                <option value="largo">Largo Plazo (Más de 12 meses)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button onclick="calculateRecommendation()" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-cyantech to-purpletech hover:from-cyan-400 hover:to-purple-400 text-darkbg font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-glow-cyan/15">
+                        Analizar Compatibilidad Estratégica
+                    </button>
+
+                    <!-- Animated Result Display Area -->
+                    <div id="recommendation-result" class="hidden mt-4 p-4 rounded-lg border border-slate-800 bg-slate-950/80 transition-all duration-500">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-800 pb-3 mb-3">
+                            <div>
+                                <span class="text-xxs font-bold uppercase tracking-widest text-slate-400">Tecnología Sugerida</span>
+                                <h4 id="result-tech-title" class="text-base sm:text-lg font-bold text-cyantech mt-0.5">REALIDAD AUMENTADA (AR)</h4>
+                            </div>
+                            <div id="result-badge" class="px-2.5 py-1 rounded bg-cyan-950 border border-cyan-800 text-xs text-cyantech font-bold uppercase tracking-wider">
+                                Compatibilidad 98%
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div>
+                                <h5 class="text-xxs font-bold text-slate-400 uppercase tracking-wider">Producto de Referencia (Aumenta Solutions)</h5>
+                                <p id="result-product" class="text-xs sm:text-sm text-slate-200 mt-1 font-bold">RA Place (Aplicación AR) - Mapeo 3D en el Espacio</p>
+                                <p id="result-price" class="text-xs text-emerald-455 mt-0.5 font-bold font-mono text-emerald-400">Precio de referencia: a partir de 10.000 €</p>
+                            </div>
+                            <div>
+                                <h5 class="text-xxs font-bold text-slate-400 uppercase tracking-wider">Acción Estratégica Recomendada</h5>
+                                <p id="result-action" class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed font-normal">
+                                    Desplegar campañas de WebAR orientadas a marketing interactivo para posicionamiento de productos 3D en el espacio real de tus clientes. No requiere descargas de Apps en tiendas tradicionales, logrando captaciones con costes mínimos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder initially shown -->
+                    <div id="recommendation-placeholder" class="mt-4 p-6 rounded-lg border border-dashed border-slate-800 text-center text-slate-350 text-xs sm:text-sm font-normal">
+                        <i class="fa-solid fa-cube text-3xl text-slate-600 mb-2 block animate-pulse"></i>
+                        Configura el Presupuesto y el Retorno arriba para recibir un análisis en tiempo real.
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVA SECCIÓN DE COSTES DE DISPOSITIVOS Y COMINACT -->
+            <div class="glass-panel rounded-xl p-5 border-slate-800 shadow-lg mt-6">
+                <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
+                    <div>
+                        <h3 class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-file-invoice-dollar text-emerald-400"></i> Estructura Financiera del Proyecto COMINACT
+                        </h3>
+                        <p class="text-xxs text-slate-450 mt-0.5 font-medium">Costes de adquisición de hardware, licencias R&amp;D y modelo SaaS (Datos extraídos de NotebookLM)</p>
+                    </div>
+                    <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-xxs text-emerald-400 font-mono font-bold uppercase tracking-wider">Análisis Financiero R&amp;D</span>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                    <!-- Column 1: Hardware -->
+                    <div class="p-4 rounded-lg bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xxs font-bold text-cyantech uppercase tracking-wider px-2 py-0.5 rounded bg-cyantech/10 border border-cyantech/25 shadow-sm">Equipamiento Físico</span>
+                                <i class="fa-solid fa-headset text-cyantech text-xs"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-white mb-2">Adquisición de Hardware</h4>
+                            <p class="text-xxs text-slate-350 mb-3 font-normal leading-relaxed">
+                                Adquisición de los terminales de última generación necesarios para la visualización colaborativa y entrenamiento de campo.
+                            </p>
+                            <ul class="space-y-2 text-xxs text-slate-400 font-normal">
+                                <li class="flex justify-between border-b border-slate-800 pb-1.5">
+                                    <span>Apple Vision Pro <span class="text-slate-500">(1 ud. Espacios)</span></span>
+                                    <span class="font-bold text-white font-mono">8.000 €</span>
+                                </li>
+                                <li class="flex justify-between border-b border-slate-800 pb-1.5">
+                                    <span>Meta Quest 3 <span class="text-slate-500">(2 uds. Colaboración)</span></span>
+                                    <span class="font-bold text-white font-mono">2.400 € <span class="text-slate-500 font-normal">(1.200 €/ud)</span></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-800/60 flex justify-between items-center text-xxs">
+                            <span class="text-slate-500">Ciclo de Amortización / Vida Útil:</span>
+                            <span class="font-bold text-cyantech">3 Años</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Software / Licenses -->
+                    <div class="p-4 rounded-lg bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xxs font-bold text-purpletech uppercase tracking-wider px-2 py-0.5 rounded bg-purpletech/10 border border-purpletech/25 shadow-sm">Licencias R&amp;D</span>
+                                <i class="fa-solid fa-code text-purpletech text-xs"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-white mb-2">Licencias y Servidores Cloud</h4>
+                            <p class="text-xxs text-slate-350 mb-3 font-normal leading-relaxed">
+                                Software especializado para el modelado 3D, lógica multijugador en tiempo real e infraestructura en la nube.
+                            </p>
+                            <ul class="space-y-2 text-xxs text-slate-400 font-normal">
+                                <li class="flex justify-between border-b border-slate-800 pb-1">
+                                    <span>Unity Pro <span class="text-slate-500">(Motor Gráfico)</span></span>
+                                    <span class="font-bold text-white font-mono">7.508 €</span>
+                                </li>
+                                <li class="flex justify-between border-b border-slate-800 pb-1">
+                                    <span>Autodesk 3ds Max <span class="text-slate-500">(Modelado CAD)</span></span>
+                                    <span class="font-bold text-white font-mono">4.490 €</span>
+                                </li>
+                                <li class="flex justify-between border-b border-slate-800 pb-1">
+                                    <span>Photon Engine <span class="text-slate-500">(Lógica Online)</span></span>
+                                    <span class="font-bold text-white font-mono">2.500 €</span>
+                                </li>
+                                <li class="flex justify-between border-b border-slate-800 pb-1">
+                                    <span>AWS Cloud Infrastructure <span class="text-slate-500">(Hosting)</span></span>
+                                    <span class="font-bold text-white font-mono">1.500 €</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-800/60 flex justify-between items-center text-xxs">
+                            <span class="text-slate-500">Inversión Consolidada en R&amp;D:</span>
+                            <span class="font-bold text-purpletech font-mono">15.998 €</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Commercial Model SaaS -->
+                    <div class="p-4 rounded-lg bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-xxs font-bold text-emerald-450 uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-950/30 border border-emerald-800/30 shadow-sm">Modelo Comercial</span>
+                                <i class="fa-solid fa-briefcase text-emerald-400 text-xs"></i>
+                            </div>
+                            <h4 class="text-xs font-bold text-white mb-2">Plataforma SaaS COMINACT</h4>
+                            <p class="text-xxs text-slate-350 mb-3 font-normal leading-relaxed">
+                                Propuesta comercial de suscripción para la gestión de puestas en marcha (commissioning) y certificación virtual de activos.
+                            </p>
+                            <div class="p-3 bg-emerald-950/20 rounded border border-emerald-900/30 text-center mb-3">
+                                <span class="block text-xl font-black text-emerald-400 tracking-tight">15.000 € <span class="text-xxs font-normal">/año</span></span>
+                                <span class="text-xxs font-bold text-white uppercase tracking-wider block mt-0.5">Por Instalación Autorizada</span>
+                            </div>
+                            <p class="text-xxs text-slate-400 leading-relaxed font-normal">
+                                Ofrece un entorno seguro para que clientes finales, ingenieros de planta y subcontratistas certifiquen la maquinaria de manera remota e interactiva, disminuyendo CAPEX.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-slate-800/60 flex justify-between items-center text-xxs">
+                            <span class="text-slate-500">Valor Estratégico Clave:</span>
+                            <span class="font-bold text-emerald-400">Reducción CAPEX/OPEX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PERSPECTIVAS DE FUTURO & TIMELINE -->
+        <section id="tab-futuro" class="tab-content hidden transition-all duration-300">
+            <!-- Strategic Timeline / Roadmap -->
+            <div class="glass-panel rounded-xl p-5 mb-6 border-slate-700 shadow-lg">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-timeline text-fuchsiatech"></i> Hoja de Ruta Tecnológica XR (2025 - 2029+)
+                        </h3>
+                        <p class="text-xs text-slate-400 font-medium mt-1">Hitos y transiciones críticas del B2B industrial al consumo de masas</p>
+                    </div>
+                </div>
+
+                <div class="relative pl-6 sm:pl-8 border-l-2 border-slate-700 space-y-6">
+                    <!-- Milestone 1 -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-slate-900 ring-2 ring-slate-950">
+                            <span class="h-1.5 w-1.5 rounded-full bg-cyantech"></span>
+                        </span>
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                            <h4 class="text-xs sm:text-sm font-bold text-white">Consolidación de Simuladores Médicos</h4>
+                            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-xxs text-cyantech font-bold font-mono self-start sm:self-auto uppercase tracking-wider">AÑO 2025</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-1.5 font-normal leading-relaxed">
+                            Lanzamiento comercial homologado del **Simulador de Diálisis Domiciliaria en Realidad Mixta** ($65.000). Expansión de sistemas holográficos Looking Glass 8K en las unidades de nefrología y pediatría de grandes hospitales nacionales.
+                        </p>
+                    </div>
+
+                    <!-- Milestone 2 -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-slate-900 ring-2 ring-slate-950">
+                            <span class="h-1.5 w-1.5 rounded-full bg-purpletech"></span>
+                        </span>
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                            <h4 class="text-xs sm:text-sm font-bold text-white">Integración GenAI &amp; Spatial Computing</h4>
+                            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-xxs text-purpletech font-bold font-mono self-start sm:self-auto uppercase tracking-wider">AÑO 2026</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-1.5 font-normal leading-relaxed">
+                            La Inteligencia Artificial generativa asiste en la creación automática de layouts 3D e interfaces de control adaptativo. Simulación ultra-realista de fluidos y cargas aerodinámicas acelerada por hardware de última generación (BMW digital twins a 30x).
+                        </p>
+                    </div>
+
+                    <!-- Milestone 3 -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-slate-900 ring-2 ring-slate-950">
+                            <span class="h-1.5 w-1.5 rounded-full bg-fuchsiatech"></span>
+                        </span>
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                            <h4 class="text-xs sm:text-sm font-bold text-white">Centros de Control Virtuales Multipersona</h4>
+                            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-xxs text-fuchsiatech font-bold font-mono self-start sm:self-auto uppercase tracking-wider">AÑO 2027</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-1.5 font-normal leading-relaxed">
+                            Despliegue de salas de control holográficas compartidas para monitorización virtual fotovoltaica (Metavers Solar). Hasta 5 operarios acceden simultáneamente en un entorno colaborativo mediante dispositivos ligeros y mandos interactivos gestuales (Leap Motion).
+                        </p>
+                    </div>
+
+                    <!-- Milestone 4 -->
+                    <div class="relative">
+                        <span class="absolute -left-[31px] sm:-left-[39px] top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-slate-900 ring-2 ring-slate-950">
+                            <span class="h-1.5 w-1.5 rounded-full bg-emerald-450"></span>
+                        </span>
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                            <h4 class="text-xs sm:text-sm font-bold text-white">Ecosistema del Metaverso Industrial a Gran Escala</h4>
+                            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 text-xxs text-emerald-400 font-bold font-mono self-start sm:self-auto uppercase tracking-wider">2028 - 2029+</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-1.5 font-normal leading-relaxed">
+                            Convergencia total de las capas de conectividad Edge, IoT centralizado (OPC-UA y MQTT/Sparkplug B) y simulación modular física basada en estándares abiertos **USD (Universal Scene Description)** de Pixar e NVIDIA, superando los $100 mil millones de valoración para 2030.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenges Section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <!-- Barrier 1 -->
+                <div class="glass-panel rounded-xl p-5 border-slate-700 shadow-md">
+                    <div class="text-rose-400 text-lg mb-2"><i class="fa-solid fa-lock"></i></div>
+                    <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-2 border-b border-slate-800 pb-1.5">Privacidad Espacial &amp; Datos</h4>
+                    <p class="text-xs text-slate-355 leading-relaxed font-normal text-slate-300">
+                        El mapeado 3D constante de hogares u oficinas privadas mediante cámaras activas (passthrough de dispositivos de realidad mixta) presenta serios desafíos éticos y regulatorios sobre el consentimiento y protección de datos espaciales.
+                    </p>
+                </div>
+                <!-- Barrier 2 -->
+                <div class="glass-panel rounded-xl p-5 border-slate-700 shadow-md">
+                    <div class="text-rose-400 text-lg mb-2"><i class="fa-solid fa-link-slash"></i></div>
+                    <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-2 border-b border-slate-800 pb-1.5">El Reto de la Interoperabilidad</h4>
+                    <p class="text-xs text-slate-355 leading-relaxed font-normal text-slate-300">
+                        Para habilitar un metaverso industrial real, los sistemas 3D deben comunicarse sin fricciones propietarias. Se requiere la adopción global de estándares abiertos como **USD (Universal Scene Description)** y glTF, rompiendo los silos corporativos clásicos.
+                    </p>
+                </div>
+                <!-- Barrier 3 -->
+                <div class="glass-panel rounded-xl p-5 border-slate-700 shadow-md">
+                    <div class="text-rose-400 text-lg mb-2"><i class="fa-solid fa-brain"></i></div>
+                    <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider mb-2 border-b border-slate-800 pb-1.5">Ergonomía &amp; Reskilling</h4>
+                    <p class="text-xs text-slate-355 leading-relaxed font-normal text-slate-300">
+                        El hardware inmersivo actual aún sufre de peso excesivo y fatiga ocular en usos prolongados. Además, se requiere capacitación (upskilling) para que los ingenieros mecánicos tradicionales interactúen eficazmente con telemetría inmersiva 3D.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center mt-16 pt-8 border-t border-slate-900/60 pb-8 text-xs sm:text-sm text-slatebody/75 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>© 2026 Aumenta Solutions SL. Todos los derechos reservados. Mantenimiento Predictivo &amp; Visualización Holográfica.</p>
+            <div class="flex gap-4">
+                <span class="hover:text-white transition-colors cursor-pointer">Estándar USD</span>
+                <span>•</span>
+                <span class="hover:text-white transition-colors cursor-pointer">OPC-UA Protocol</span>
+                <span>•</span>
+                <span class="hover:text-white transition-colors cursor-pointer">IT/OT Data Fabric</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Data derived strictly from js_code_to_paste.txt (Páginas 14-15) and industrial_metaverse_research.md
+        const AR_GROWTH = [42.48, 59.50, 83.40, 117.00, 164.00, 248.38];
+        const VR_GROWTH = [67.66, 84.00, 104.00, 130.00, 162.00, 204.35];
+        const MR_GROWTH = [4.04, 5.90, 8.60, 12.50, 18.10, 26.20];
+        const IND_METAVERSE = [116.74, 165.00, 234.00, 332.00, 471.00, 669.96];
+        const YEARS = ['2024', '2025', '2026', '2027', '2028', '2029'];
+
+        let growthChart, linkedinChart;
+
+        // Document Ready Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            initGrowthChart();
+            initLinkedinChart();
+        });
+
+        // Initialize Year-by-Year CAGR projections Chart (ApexCharts)
+        function initGrowthChart() {
+            const options = {
+                series: [
+                    {
+                        name: 'Realidad Aumentada (AR) - CAGR 42.36%',
+                        data: AR_GROWTH
+                    },
+                    {
+                        name: 'Realidad Virtual (VR) - CAGR 24.74%',
+                        data: VR_GROWTH
+                    },
+                    {
+                        name: 'Realidad Mixta (MR) - CAGR 45.34%',
+                        data: MR_GROWTH
+                    },
+                    {
+                        name: 'Metaverso Global - CAGR 41.83%',
+                        data: IND_METAVERSE
+                    }
+                ],
+                chart: {
+                    type: 'area',
+                    height: 350,
+                    fontFamily: 'Outfit, sans-serif',
+                    background: 'transparent',
+                    foreColor: '#f8fafc', // Upgraded to maximum slate-50 for perfect dark contrast
+                    toolbar: {
+                        show: false
+                    }
+                },
+                colors: ['#22d3ee', '#a855f7', '#d946ef', '#10b981'],
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth',
+                    width: 3.5
+                },
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.45,
+                        opacityTo: 0.05,
+                        stops: [0, 90, 100]
+                    }
+                },
+                grid: {
+                    borderColor: '#334155',
+                    strokeDashArray: 4
+                },
+                xaxis: {
+                    categories: YEARS,
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        style: {
+                            fontSize: '12px',
+                            fontWeight: 600,
+                            colors: '#cbd5e1'
+                        }
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        formatter: function(val) {
+                            return '$' + val + 'B';
+                        },
+                        style: {
+                            fontSize: '12px',
+                            fontWeight: 600,
+                            colors: '#cbd5e1'
+                        }
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    style: {
+                        fontSize: '12px',
+                        fontFamily: 'Outfit, sans-serif'
+                    },
+                    x: {
+                        show: true
+                    },
+                    y: {
+                        formatter: function(val) {
+                            return '$' + val.toFixed(2) + ' Mil Millones USD';
+                        }
+                    }
+                },
+                legend: {
+                    position: 'top',
+                    horizontalAlign: 'left',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    labels: {
+                        colors: '#cbd5e1'
+                    }
+                }
+            };
+
+            growthChart = new ApexCharts(document.querySelector("#chart-growth"), options);
+            growthChart.render();
+        }
+
+        // Initialize LinkedIn Buzz Index Radial Chart (ApexCharts)
+        function initLinkedinChart() {
+            const options = {
+                series: [85, 72, 92],
+                chart: {
+                    type: 'radialBar',
+                    height: 270,
+                    fontFamily: 'Outfit, sans-serif',
+                    background: 'transparent',
+                },
+                plotOptions: {
+                    radialBar: {
+                        dataLabels: {
+                            name: {
+                                fontSize: '12px',
+                                fontWeight: 600,
+                                color: '#cbd5e1'
+                            },
+                            value: {
+                                fontSize: '24px',
+                                color: '#fff',
+                                fontWeight: 850,
+                                formatter: function (val) {
+                                    return val + '%'
+                                }
+                            },
+                            total: {
+                                show: true,
+                                label: 'Engagement Promedio',
+                                color: '#cbd5e1',
+                                fontSize: '12px',
+                                fontWeight: 600,
+                                formatter: function (w) {
+                                    return '83%'
+                                }
+                            }
+                        },
+                        track: {
+                            background: '#1e293b',
+                            strokeWidth: '95%',
+                        }
+                    }
+                },
+                colors: ['#22d3ee', '#a855f7', '#d946ef'],
+                labels: ['Realidad Aumentada (AR)', 'Realidad Virtual (VR)', 'Realidad Mixta (MR)'],
+                stroke: {
+                    lineCap: 'round'
+                }
+            };
+
+            linkedinChart = new ApexCharts(document.querySelector("#chart-linkedin"), options);
+            linkedinChart.render();
+        }
+
+        // Navigation tab-switching logic
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // Remove active style from all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show active tab
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).classList.add('active');
+
+            // Force reflow for charts if switching to Mercado tab
+            if (tabId === 'tab-mercado') {
+                setTimeout(() => {
+                    growthChart.windowResize();
+                    linkedinChart.windowResize();
+                }, 50);
+            }
+        }
+
+        // Success Stories Accordion Toggle
+        function toggleAccordion(id) {
+            const content = document.getElementById('content-' + id);
+            const icon = document.getElementById('icon-' + id);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+                icon.classList.add('text-cyantech');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+                icon.classList.remove('text-cyantech');
+            }
+        }
+
+        // ROI Matcher Algorithm
+        function calculateRecommendation() {
+            const budget = document.getElementById('select-budget').value;
+            const roi = document.getElementById('select-roi').value;
+            const placeholder = document.getElementById('recommendation-placeholder');
+            const resultBox = document.getElementById('recommendation-result');
+
+            // Dom Nodes for Dynamic Updates
+            const titleNode = document.getElementById('result-tech-title');
+            const badgeNode = document.getElementById('result-badge');
+            const productNode = document.getElementById('result-product');
+            const priceNode = document.getElementById('result-price');
+            const actionNode = document.getElementById('result-action');
+
+            placeholder.classList.add('hidden');
+            resultBox.classList.remove('hidden');
+
+            // Logic matrix based on extracted portfolio parameters
+            if (budget === 'bajo') {
+                // Low budget (<15k€)
+                titleNode.innerText = "REALIDAD AUMENTADA (AR / WEBAR)";
+                badgeNode.className = "px-4 py-2.5 rounded bg-cyan-950 border border-cyan-800 text-lg sm:text-xl text-cyantech font-black uppercase tracking-wider shadow-sm";
+                badgeNode.innerText = "COMPATIBILIDAD 96%";
+                
+                if (roi === 'rapido') {
+                    productNode.innerText = "RA Place (Aplicación AR) - Mapeo 3D en el Espacio";
+                    priceNode.innerText = "Precio de referencia: a partir de 10.000 €";
+                    actionNode.innerText = "Perfecto para desplegar rápidamente maquetas tridimensionales y posicionar activos (muebles, componentes) a través del navegador móvil de tus clientes (WebAR). Excelente para retornos de inversión inmediatos (<6 meses) en captación de leads e impacto en eventos.";
+                } else {
+                    productNode.innerText = "Powerlife (Eventos Interactivos en AR)";
+                    priceNode.innerText = "Precio de referencia: a partir de 8.000 €";
+                    actionNode.innerText = "Solución óptima para eventos corporativos y stands inmersivos, combinando objetos virtuales 3D sobre soportes reales físicos para impresionar a clientes. Retorno de mediano a largo plazo apoyando la imagen comercial y tasa de conversión.";
+                }
+            } else if (budget === 'medio') {
+                // Medium budget (15k€ - 50k€)
+                if (roi === 'rapido') {
+                    titleNode.innerText = "REALIDAD VIRTUAL (VR SIMULACIÓN)";
+                    badgeNode.className = "px-4 py-2.5 rounded bg-purple-950 border border-purple-800 text-lg sm:text-xl text-purpletech font-black uppercase tracking-wider shadow-sm";
+                    badgeNode.innerText = "COMPATIBILIDAD 94%";
+                    productNode.innerText = "Diálisis Patient Journey Simulator (Homologado Bellvitge)";
+                    priceNode.innerText = "Precio de referencia: 15.000 €";
+                    actionNode.innerText = "Ideal para clínicas u hospitales de referencia. Simulador interactivo en VR desarrollado con IDIBELL para entrenar y preparar psicológicamente al paciente antes del tratamiento. Retorno rápido (<6 meses) al reducir consultas, miedos del paciente y dudas post-implantación de nefrología.";
+                } else {
+                    titleNode.innerText = "REALIDAD MIXTA O HOLOGRAFÍA (LOOKING GLASS)";
+                    badgeNode.className = "px-4 py-2.5 rounded bg-fuchsia-950 border border-fuchsia-800 text-lg sm:text-xl text-fuchsiatech font-black uppercase tracking-wider shadow-sm";
+                    badgeNode.innerText = "COMPATIBILIDAD 91%";
+                    productNode.innerText = "Visualización Holográfica 8K Looking Glass & Leap Motion";
+                    priceNode.innerText = "Precio de referencia: a partir de 8.000 € (Adaptación del Software)";
+                    actionNode.innerText = "Excelente para quirófanos y showrooms comerciales. Displays holográficos sin necesidad de gafas 3D con interacción gestual. Retorno medio/largo apoyado en la diferenciación tecnológica absoluta y formación técnica de cirujanos y especialistas.";
+                }
+            } else {
+                // High budget (>50k€)
+                if (roi === 'largo') {
+                    titleNode.innerText = "METAVERSO INDUSTRIAL / DIGITAL TWIN COMPLETO";
+                    badgeNode.className = "px-4 py-2.5 rounded bg-emerald-950 border border-emerald-800 text-lg sm:text-xl text-emerald-400 font-black uppercase tracking-wider shadow-sm";
+                    badgeNode.innerText = "COMPATIBILIDAD 98%";
+                    productNode.innerText = "Metaverso Industrial (Supervisión Energética & Mantenimiento Predictivo)";
+                    priceNode.innerText = "Precio de referencia: Proyecto a escala industrial (>50.000 €)";
+                    actionNode.innerText = "Replicar tus plantas de producción o campos solares conectando gemelos virtuales en 3D con sensores en tiempo real IoT (OPC-UA / MQTT) y capas de análisis avanzado con PowerBI. Logra un retorno a largo plazo reduciendo costes de prototipado en un 70% e incrementando el rendimiento operacional.";
+                } else {
+                    titleNode.innerText = "REALIDAD MIXTA CLÍNICA (MR DE ALTA FIDELIDAD)";
+                    badgeNode.className = "px-4 py-2.5 rounded bg-fuchsia-950 border border-fuchsia-800 text-lg sm:text-xl text-fuchsiatech font-black uppercase tracking-wider shadow-sm";
+                    badgeNode.innerText = "COMPATIBILIDAD 95%";
+                    productNode.innerText = "Simulador de Diálisis Domiciliaria en Realidad Mixta (Quest 3 / Apple Vision Pro)";
+                    priceNode.innerText = "Precio unitario: 65.000 € (En homologación Bellvitge)";
+                    actionNode.innerText = "Entrenamiento avanzado de pacientes para procedimientos de diálisis domiciliaria mediante gemelo digital interactivo y sensores. Retorno de inversión medio (6-12 meses) al liberar camas y salas de formación presencial hospitalarias al derivar pacientes a tratamiento domiciliario autónomo seguro.";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
