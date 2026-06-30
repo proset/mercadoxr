@@ -33,6 +33,18 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 25s linear infinite;
+            display: flex;
+            width: fit-content;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-white selection:text-black">
@@ -87,20 +99,37 @@
     </section>
 
     <!-- TRUSTED BY -->
-    <section class="py-16 bg-[#050505] border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
+    <section class="py-16 bg-[#050505] border-t border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-12">
+            <div class="text-center">
                 <h2 class="text-4xl font-bold tracking-tight mb-4">Confían en Nosotros</h2>
                 <p class="text-gray-400">Líderes de la industria que ya están transformando sus procesos con Aumenta Solutions.</p>
             </div>
-            <div class="flex flex-wrap justify-center items-center gap-12 lg:gap-16 opacity-60 transition-all duration-500">
-                <img src="./clients/seat.svg" alt="SEAT" class="h-8 w-auto object-contain brightness-0 invert hover:opacity-100 transition-opacity">
-                <img src="./clients/iveco.svg" alt="IVECO" class="h-8 w-auto object-contain brightness-0 invert hover:opacity-100 transition-opacity">
-                <img src="./clients/nissan.svg" alt="NISSAN" class="h-8 w-auto object-contain brightness-0 invert hover:opacity-100 transition-opacity">
-                <img src="./clients/microsoft.svg" alt="Microsoft" class="h-8 w-auto object-contain brightness-0 invert hover:opacity-100 transition-opacity">
-                <img src="./clients/epson.svg" alt="Epson" class="h-8 w-auto object-contain brightness-0 invert hover:opacity-100 transition-opacity">
-                <img src="./clients/spacex.svg" alt="SpaceX" class="h-8 w-auto object-contain brightness-0 invert hover:opacity-100 transition-opacity">
-                <img src="./clients/jnj.svg" alt="Johnson & Johnson" class="h-5 lg:h-6 w-auto object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+        </div>
+        
+        <div class="relative w-full overflow-hidden opacity-60 hover:opacity-80 transition-opacity duration-300">
+            <!-- Fade Gradients -->
+            <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="animate-scroll flex items-center gap-16 pr-16">
+                <!-- Set 1 -->
+                <img src="./clients/seat.svg" alt="SEAT" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/iveco.svg" alt="IVECO" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/nissan.svg" alt="NISSAN" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/microsoft.svg" alt="Microsoft" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/epson.svg" alt="Epson" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/spacex.svg" alt="SpaceX" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/jnj.svg" alt="Johnson & Johnson" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                
+                <!-- Set 2 (Duplicate for infinite scroll) -->
+                <img src="./clients/seat.svg" alt="SEAT" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/iveco.svg" alt="IVECO" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/nissan.svg" alt="NISSAN" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/microsoft.svg" alt="Microsoft" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/epson.svg" alt="Epson" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/spacex.svg" alt="SpaceX" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
+                <img src="./clients/jnj.svg" alt="Johnson & Johnson" class="h-10 w-auto max-w-[140px] object-contain brightness-0 invert hover:opacity-100 transition-opacity">
             </div>
         </div>
     </section>
