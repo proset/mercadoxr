@@ -1,0 +1,2 @@
+Esta es una prueba para verificar la URL.
+Si puedes leer esto, estás en la carpeta correcta.

@@ -1,0 +1,912 @@
+﻿Imagen que contiene dibujo
+
+Descripción generada automáticamente 
+ Logotipo, nombre de la empresa
+
+Descripción generada automáticamente 
+ Logotipo, Icono
+
+Descripción generada automáticamente con confianza media 
+ Logotipo
+
+Descripción generada automáticamente 
+ Logotipo
+
+Descripción generada automáticamente 
+ Imagen que contiene hombre, sostener, parado
+
+Descripción generada automáticamente 
+
+
+
+
+
+
+
+
+
+
+
+“Plataforma de mantenimiento predictivo para monitorización virtual en el metaverso de instalaciones fotovoltaicas”
+
+
+
+
+Memoria Justificativa
+AEI-010500-2022b-174
+
+
+
+
+
+
+ Logotipo, nombre de la empresa
+
+Descripción generada automáticamente 
+ Logotipo
+
+Descripción generada automáticamente 
+ Logotipo
+
+Descripción generada automáticamente 
+ Imagen que contiene hombre, sostener, parado
+
+Descripción generada automáticamente 
+
+
+
+
+
+ Imagen que contiene dibujo
+
+Descripción generada automáticamente 
+ Logotipo, Icono
+
+Descripción generada automáticamente con confianza media 
+
+
+
+
+
+
+
+
+
+
+
+Índice
+1.        Resumen del proyecto Plataforma de mantenimiento predictivo para monitorización virtual en el metaverso de instalaciones fotovoltaicas        x
+1.1 Introducción        x
+1.2 Resumen técnico        x
+2.        Objetivos del proyecto        x
+2.1        Descripción técnica        x
+3        Metodología y fases del proyecto        x
+3.1 Fase 1 – Gestión y Coordinación del proyecto        x
+3.2 Fase 2 – Consultoría y análisis de proceso de producción (rendimiento) y mantenimiento (correctivo y preventivo) en ISFOC.         x
+3.3 Fase 3 – Análisis de datos de producción, mantenimiento y proceso (históricos y actuales)        x
+3.4 Fase 4 – Definición de requisitos, casos de uso y arquitectura de la Plataforma de Mantenimiento Predictivo        x
+3.5 Fase 5 – Análisis y definición de sensórica, dispositivo IoT y Plataforma IoT        x
+3.6 Fase 6- Estudio y optimización del algoritmo para mantenimiento predictivo (Análisis de supervivencia) para placas fotovoltaicas, inversores y baterías        x
+3.7 Fase 7- Análisis y selección de la tecnología de virtualización que mejor se adapte al objetivo del proyecto                                                                                                                              x
+3.8 Fase 8- Puesta en común de resultados y análisis de integración entre los diferentes sistemas involucrados en el proyecto (Plataforma IoT, IoT Hub, sensórica, algoritmos de ML y virtualización)                                                                                                                                            x
+3.9 Fase 9- Divulgación de resultados del proyecto                                                                            x
+4.        Resultados obtenidos        x
+5.        Conclusiones        x
+6.        Diagrama de Gantt        x          7.        Memoria económica        x
+8.        Memoria de desviaciones        x
+9.        Anexos        x
+
+
+
+
+
+
+________________
+
+
+1. Resumen del proyecto Plataforma de mantenimiento predictivo para monitorización virtual en el metaverso de instalaciones fotovoltaicas
+
+
+   1. Introducción 
+Con la creciente proliferación de instalaciones de energía solar, el mantenimiento puntual, se convierte cada vez en menos eficiente en tiempo y costes, debido a la gran demanda de mano de obra. Es por ello, que las aproximaciones de mantenimiento que no requieren de diagnóstico manual se están haciendo cada vez más populares, fundamentalmente las basadas en Machine Learning con datos provenientes de sensores en tiempo real. 
+La proliferación de las tecnologías asociadas al IoT (sensórica avanzada, dispositivos edge y cloud) y su capacidad de integración con el Machine Learning hacen de esta combinación una solución muy adecuada para dar respuesta a la creciente necesidad de soluciones predictivas de mantenimiento. Actualmente, existen cuatro métodos fundamentales para el mantenimiento predictivo:
+* El primero de ellos, basado en la inspección directa visual de todos los componentes
+* El segundo es un análisis FMEA (Failure Modes and Effects Analysis), es decir, el análisis de las características de la planta, el uso de cámaras termográficas por infrarrojos y la comparación de la salida actual, con la capacidad de generación de la planta. 
+* El tercero, es la utilización de métodos de Machine Learning, basadas en previsión.
+* El cuarto, es la monitorización remota inteligente y el control de las instalaciones con redes de sensores.
+En la siguiente figura se pueden apreciar los cuatro modos, junto con el resumen de las características de cada uno de ellos. Interfaz de usuario gráfica, Texto, Aplicación
+
+Descripción generada automáticamente 
+Se puede observar la relación entre el coste de la implantación y la exactitud de detección y rendimiento del mantenimiento predictivo. En este sentido un diagnóstico manual es una solución muy económica de implantación con un bajo rendimiento en los resultados de mantenimiento predictivo ya que la toma de decisiones no está basada en datos reales extraídos de proceso, en contraposición con la solución de sensorización en tiempo real que siendo la más compleja y costosa en la implementación, ofrece un rendimiento óptimo a nivel de exactitud de diagnóstico en la detección para un resultado óptimo de mantenimiento predictivo con el consecuente ahorro de costes de mantenimiento y aumento de productividad. 
+AQUI SE DA UN SALTO AL METAVERSO QUE NO ES ENTENDIBLE, SIN RELACIÓN EN LA REDACCIÓN DEL PARRAFO. ABRÍA QUE ENFOCAR LA INTRODUCCIÓN DEL METAVERSO COMO LA MEJOR SOLUCIÓN Y DONDE SE PUEDE INTEGRAR LAS CÁMARAS TERMOGRÁFICAS, MEARCHING LEARGING Y SENSÓRICA EN TIEMPO REAL
+El Metaverso es un mundo virtual tridimensional donde las personas interactúan entre sí y su entorno, usando la metáfora del mundo real, pero sin sus limitaciones físicas (Davis, Murphy, Owens, Khazanchi y Zigurs, 2009), ofreciendo capacidades tecnológicas únicas para equipos de proyectos virtuales. 
+Estas capacidades se pueden clasificar en términos generales en las siguientes cuatro áreas:
+* Comunicación en tiempo real, multilenguaje y multicanal.
+* Representación mediante imágenes tridimensionales para proporcionar nuevas formas de representar y comunicar.
+* Interacción e interactividad en tiempo real. 
+* Herramientas de gestión de equipo para apoyar la estructura del proceso, los procesamientos de información, socialización y creación de comunidades.
+Bajo estas premisas la creación de centros de control basados en el Metaverso es un área prácticamente inexplorada en la actualidad y como se verá más adelante permite capacidades muy superiores a los centros de control tradicionales.
+   2. Resumen técnico
+‘Plataforma de mantenimiento predictivo para monitorización virtual en el metaverso de instalaciones fotovoltaicas’ es un proyecto de investigación que tiene como reto implementar una solución de mantenimiento predictivo, basada en técnicas de Inteligencia Artificial y visualización de datos en un entorno virtual colaborativo en forma de centro de control en el metaverso. Esta solución, destinada a su uso en instalaciones fotovoltaicas, se ha planteado para reducir y optimizar el coste por acción de mantenimiento óptima (fallo previsto en un tiempo definido), minimizando los costes por fallo no planificado (mantenimiento correctivo) así como los costes derivados por sobre mantenimiento (mantenimiento preventivo) y lo más importante potenciar el mantenimiento predictivo a través de la implantación en los procesos de algoritmos de inteligencia artificial e instalación de redes de dispositivos IoT con el fin de aportar una mayor cantidad de datos para la mejora de la toma de decisiones.
+2.        FALTAN PONER EL TÍTULO        
+Este proyecto está divido en 2 fases, la fase 1 consideró[a] los siguientes objetivos:
+
+
+Se[b] definió la mejor estrategia de implementación de mantenimiento predictivo a partir del análisis y detección de puntos de mejora del proceso de producción y mantenimiento en instalaciones fotovoltaicas, con un estudio del estado actual del sector fotovoltaico en general y una consultoría de digitalización y procesos en ISFOC (Instituto de Sistemas Fotovoltaicos de Concentración) en particular. 
+● Se analizó el estado del arte de sensórica IoT en general y en el sector fotovoltaico en particular para definir los requerimientos, funcionalidades necesarias y la mejor estrategia de implantación de sensorización en los equipos involucrados en la generación de energía (paneles fotovoltaicos, baterías e inversores) en las instalaciones fotovoltaicas para la implantación de una óptima solución de mantenimiento predictivo. 
+● Se analizó el estado del arte de las plataformas IoT en general y en el sector fotovoltaico en particular para definir los requerimientos, funcionalidades necesarias y la mejor estrategia para el diseño y desarrollo de la plataforma IoT en las instalaciones fotovoltaicas para la implantación de una óptima solución de mantenimiento predictivo. 
+● Se desarrolló y validó un modelo de Machine Learning para mantenimiento predictivo, utilizando técnicas de Análisis de Supervivencia, para una instalación fotovoltaica a partir del análisis de los datos reales de producción, mantenimiento y proceso de ISFOC complementados con un estudio general de proceso de mantenimiento del sector fotovoltaico y una consultoría de digitalización y proceso para ISFOC en particular. 
+● Se analizaron los cuadros y salas de mando físicas a nivel de información y usabilidad en instalaciones fotovoltaicas, así como el estado actual de la tecnología de visualización virtual para definir las requerimientos, funcionalidades, diseño y etapas de desarrollo para la implementación de una aplicación de visualización virtual de mantenimiento predictivo para un cuadro de mando de una instalación fotovoltaica.
+* PONDRÍA OTRO PUNTO DONDE SE INDICARÁ QUE SE HA CREADO UNA MAQUETA (o como lo queramos llamar) donde se plantea creación de un metaverso para plantas fotovoltaicas.
+ 
+
+
+2.1        Descripción técnica 
+Introducción
+El Machine Learning ofrece su mejor rendimiento al procesar y analizar grandes volúmenes de datos, lo que hace que su integración con la tecnología del internet de las cosas (IoT) sea una solución óptima para el análisis estadístico de procesos y la generación de nuevo conocimiento y aplicaciones inteligentes. La evolución de la tecnología cloud, la simplificación y mejora de rendimiento de los dispositivos IoT-Edge junto con el desarrollo de la sensórica IoT, así como la descentralización de los datos, el machine Learning y el Big Data ya están establecidos como los nuevos agentes transformadores de la industria 4.0 y las empresas y centros productivos ya están dispuestas a integrar estas tecnologías para redefinir y optimizar sus tradicionales procesos productivos.
+Este proyecto planteo una plataforma IoT que integre sensórica IoT, modelos de Machine Learning  y la interfaz de comunicación con la aplicación de visualización virtual en Metaverso, con el objetivo de implementar una solución de mantenimiento predictivo para instalaciones del sector fotovoltaico.
+Plataforma IoT y sensórica
+Gracias al crecimiento exponencial de los dispositivos y sensores IoT, se están generando grandes cantidades de datos que pueden ser analizados para extraer y generar nuevo conocimiento de cualquier tipo de proceso. En este sentido, la plataforma IoT se ha establecido como la herramienta que permite conectar todo en un sistema IoT permitiendo monitorizar, supervisar y controlar los datos, eliminando la distancia que existía entre los sensores, dispositivos y las redes de datos, acercando la información de campo a los equipos técnicos.
+En este piloto de implantación de solución de mantenimiento predictivo se plantea una red IoT configurada en tres capas diferentes: sensórica IoT, dispositivo IoT Edge y Cloud, conformando una plataforma IoT con las siguientes características generales:
+* Conectividad con capacidades de adaptación de varios protocolos de comunicaciones.
+* Gestión de dispositivos Edge realizando la monitorización de su estado en tiempo real.
+* Recopilación de datos en tiempo real en IoT-Edge.
+* Análisis de datos tanto en IoT-Edge como en Cloud.
+* Módulos de comunicación (Edge-Cloud) para el intercambio de datos con la instalación física (paneles de fotovoltaica, convertidores y sensores).
+* Base de datos en Cloud para un almacenamiento masivo, que permita el análisis de éstos.
+* Sistemas de control de integridad de datos y seguridad en las comunicaciones tanto a nivel Edge como en Cloud.
+* Integración efectiva de módulos de inteligencia artificial para la optimización de los modelos de predicción, detección de fallo y control de anomalías que implementan la solución de mantenimiento predictivo.
+* Integración API para optimizar la creación de servicios de consumo de los datos generados en base de datos por el proceso de recopilación, análisis y posterior tratamiento mediante Machine Learning en la base de datos.
+La integración de las tecnologías de IoT y Machine Learning logran altos niveles de rendimiento debido a que el IoT se ocupa de crear, recopilar y transmitir datos del entorno y el Machine Learning se responsabiliza de crear valor obteniendo información relevante de los datos sin procesar que le provee el IoT.  
+Analítica Avanzada
+Durante los últimos años han aparecido multitud de herramientas analíticas que ofrecen la posibilidad de consumir la información de una forma simple, pero con características muy potentes, las cuales ponen en manos de los usuarios una capacidad casi ilimitada para realizar análisis de datos a granularidades muy pequeñas con excelente rendimiento.
+Dentro de estas herramientas Power BI se ha posicionado como líder y actualmente está sumamente extendida y la apuesta de Microsoft por esta tecnología hace que de forma mensual reciba potentes actualizaciones.
+ Interfaz de usuario gráfica
+
+Descripción generada automáticamente 
+
+Interfaz PowerBI
+Power BI se considera una herramienta de autoservicio para el usuario, lo que supone gran libertad para realizar la exploración y análisis que se requiera, pero por detrás tiene potentes motores que permiten la generación de modelos complejos para dar respuesta a casi cualquier necesidad que se pueda requerir. 
+La utilización de Power BI, más el modelo único y centralizado de datos, tanto de operativa, como sensórica dotará de grandes capacidades todo ello manejado desde un único punto, sin la necesidad de revisar diferentes herramientas y/o entornos.
+Machine Learning
+El mantenimiento predictivo (PdM) es una técnica de mantenimiento proactivo que utiliza datos de activos en tiempo real (recopilados a través de sensores), datos históricos de rendimiento y análisis avanzados para pronosticar cuándo ocurrirá la falla de los activos. Utilizando datos recopilados por dispositivos de monitoreo de condición durante el funcionamiento normal, el software de mantenimiento predictivo utiliza fórmulas avanzadas (llamadas algoritmos) para comparar datos en tiempo real con mediciones conocidas y predice con precisión la falla de los activos.
+Las técnicas avanzadas de PdM también pueden incorporar tecnología de vanguardia como el aprendizaje automático y la inteligencia artificial (IA). El resultado de PdM es que el trabajo de mantenimiento se puede programar y realizar antes de que se espere que un activo falle con un tiempo de inactividad mínimo. El mantenimiento preventivo (PM) y el mantenimiento predictivo (PdM) comparten un objetivo común: detener las fallas de los activos antes de que ocurran. Sin embargo, difieren en su enfoque.
+En un programa típico de PM, las actividades de mantenimiento se programan comúnmente de acuerdo con las recomendaciones del fabricante. Los técnicos de mantenimiento también pueden identificar la necesidad de mantenimiento a través de inspecciones regulares. Si bien son útiles, estos métodos sólo son capaces de identificar los problemas más obvios en función del sentido de la vista, el sonido, el tacto y el olfato. Una vez que se descubren los problemas, las actividades de mantenimiento generalmente se programan en un intervalo estricto, basado en el tiempo o en el uso.
+La parte más importante del mantenimiento predictivo es la construcción de algoritmos predictivos. En esencia, se construyó un modelo que considera muchas variables diferentes y cómo se interconectan e impactan entre sí, con el objetivo final de poder predecir fallos de la instalación. Cuantas más variables podamos usar, más precisos serán esos modelos. Esta es la razón por la que la construcción de modelos predictivos es un proceso iterativo. Los modelos iniciales tendrán que basarse en el historial de activos almacenados en una aplicación de mantenimiento o ficheros, observaciones personales, análisis de FMEA, sensores internos ya disponibles como acelerómetros, medidores de flujo, y fuentes similares. Para ello será necesario analizar primero la información disponible para establecer unas líneas base de monitorización y un histórico que permita una mejor selección de los algoritmos de Machine Learning a utilizar.  concretamente, debemos de asegurarnos de disponer y analizar:
+* Histórico de fallos. Cuando entrenamos un modelo de Machine Learning, el algoritmo debe de intentar generalizar para ser capaz de distinguir entre los patrones de funcionamiento normal y los patrones de fallo. Es por ello que, para entrenar ese modelo, son necesarios datos de ejemplos de ambas circunstancias. 
+* Histórico de Mantenimientos / Reparaciones. El histórico de mantenimientos contendrá información sobre las reparaciones realizadas, que partes se han sustituido, etc. La presencia de esta información en nuestro conjunto de datos es crítica
+* Condiciones de operación de los sistemas de la instalación. La principal hipótesis con la que trabaja un sistema de Mantenimiento Predictivo, es que las condiciones de la instalación se irán deteriorando con el paso del tiempo. Debemos por lo tanto de poder capturar este patrón de “envejecimiento” junto con las anomalías que conducen a dicha degradación
+* Datos de Características Estáticas. Los datos de características estáticas implican la información técnica del equipo, como la fecha en que se fabricó el equipo, el modelo, la fecha de inicio del servicio y la ubicación del sistema.
+ Predictive maintenance with Machine Learning, Datrics 
+
+Ejemplo de algoritmo de mantenimiento predictivo que predice la probabilidad de fallo a lo largo del tiempo
+Una vez evaluamos la información recopilada de los sistemas existentes, y el análisis de dicha información (trabajos que se realizaron en la Fase 3), se trabajan con diferentes algoritmos de Machine Learning, para responder la pregunta principal “Fallo previsto en tiempo definido”.  En primer lugar, ese tiempo definido (cuando fallará la instalación) saldrá de las líneas base anteriores, junto con la catalogación de los diferentes tipos de errores. La base de esta investigación radica en el hecho de analizar si es viable la utilización de una técnica conocida como Análisis de Supervivencia, para su utilización en el mantenimiento predictivo de instalaciones fotovoltaicas.  
+El análisis de supervivencia se utiliza para analizar o predecir cuándo es probable que ocurra un evento. Se originó a partir de la investigación médica, pero su uso se ha expandido en gran medida a muchos campos diferentes. La verdadera fortaleza del Análisis de Supervivencia es su capacidad para manejar situaciones en las que el evento aún no ha sucedido. Para ilustrar esto, tomemos el ejemplo de dos clientes de una empresa y sigamos su estado activo / churn entre enero de 2018 y abril de 2018:
+* El Cliente A comenzó a hacer negocios antes de la ventana de tiempo, y a partir de abril de 2018, sigue siendo cliente de la empresa.
+* El Cliente B también comenzó a hacer negocios antes de enero de 2018, pero se retiró en marzo de 2018.
+Aquí, tenemos una representación explícita del evento para el cliente B. Sin embargo, no tenemos información sobre el cliente A, excepto que aún no se ha movido al final de la ventana de tiempo de enero de 2018 a abril de 2018. Esta situación se llama censura. Uno podría estar tentado a usar un modelo de regresión para predecir cuándo es probable que ocurran los eventos. Pero para hacer eso, se ignoraron las muestras censuradas, lo que resulto en una pérdida de información importante. Afortunadamente, los modelos de supervivencia son capaces de tener en cuenta la censura e incorporar esta incertidumbre, de modo que, en lugar de predecir el momento del evento, estamos prediciendo la probabilidad de que un evento ocurra en un momento determinado. Durante la Fase 6 del proyecto, se desarrolló un Modelo de Análisis de Supervivencia para predecir la probabilidad de que existe algún error, en los tres principales componentes de la instalación (placas, inversores y baterías) y en la fase de implantación (fase 2) se hará la prueba y optimización con datos reales de la instalación.
+Módulo de visualización virtual
+En este apartado se plantea una propuesta para la realización de una experiencia virtual a la que pueden acceder hasta 5 usuarios, en la que se pueda visualizar una sala de control orientada al control de instalaciones solares. 
+A esta sala de control virtual, podrán acceder los 5 usuarios de manera simultánea utilizando dispositivos VR y un set de credenciales de la plataforma. Esta sala virtual está construida enteramente en 3D como escenario y las pantallas mostrarán distintos aspectos de la infraestructura que se está monitorizando. Como elemento de innovación sobre una experiencia de monitorización de datos, el proyecto se centró en aplicar innovaciones punteras en cuanto a mantenimiento predictivo mediante IA para futuros análisis, auditorías.
+En este escenario se visualizarán:
+* Gráficos de producción
+*  KPI’s, métricas y variables meteorológicas
+* Pantallas de alertas y alarmas de planta
+* Gráficos y tablas de predicción de fallos (inversores)
+* Gráficos y tablas de anomalías de KPI’s y métricas para el control avanzado del rendimiento de la planta
+* Gráficos de correlación de variables para la detección y visualización de patrones.
+
+
+
+
+
+
+
+
+
+
+ Una captura de pantalla de un celular
+
+Descripción generada automáticamente 
+
+Prototipo del espacio virtual en el proyecto
+
+
+En cuanto a elementos de monitorización, la solución es capaz de mostrar distintos datos sobre la infraestructura:
+* Pantalla de Power Grid:
+Como en muchos otros centros de control energéticos, se muestra un diagrama de abstracción de la red de infraestructura con un código de color para representar el estado de cada elemento, generalmente verde, amarillo, naranja, rojo. (según disponibilidad de datos)
+* Pantalla de visualización y certificación de incidencias:
+En esta pantalla se muestran las distintas incidencias que pueda generar la infraestructura durante su funcionamiento, así como su estado de resolución. 
+* Pantalla de visualización y certificación de sensores
+En esta pantalla se muestran los distintos sensores listados mediante su código de identificación y su valor actual
+La presencia del sistema de IA estará implementada en cloud y se nutre de los distintos datos para realizar predicciones inferidas acerca del rendimiento y estado de los equipos de la infraestructura, produciendo así alertas o incidencias predictivas en la sala de control, en caso de detectarse anomalías o indicios de deterioro.
+Aprovechando la coyuntura del ecosistema VR actual, también se incluirán en el proyecto innovaciones en el campo de la Experiencia de Usuario (UX), ofreciendo un entorno enteramente basado en interacciones físicas, en la que los usuarios interactúan con el entorno como si estuvieran en una sala real, mediante pulsadores integrados en paneles y pantallas, idealmente (y según dispositivo) usando la tecnología hand tracking, ya que ofrece un mayor grado de inmersión y comodidad.
+
+
+La visualización en entornos de Realidad Virtual/metaverso tiene ventajas relevantes frente a los sistemas convencionales.
+Destacamos a continuación  los más importante:
+
+
+
+* La realidad virtual (VR) facilita el movimiento y navegación de datos de manera más intuitiva y mejora el proceso de reconocimiento de patrones, según investigaciones como las de El Beheiry et al. (2019) y Erra et al. (2019). Al presentar los datos en un entorno 3D, el usuario puede interpretarlos y visualizarlos de forma más intuitiva, lo que fomenta una mejor  relación entre el usuario y los datos. La percepción humana se basa en un mundo físico tridimensional, por lo que esta presentación mejora la familiaridad del usuario con los datos y su capacidad de reconocimiento de patrones, como se ha demostrado en estudios como los de Donalek et al. (2015). De hecho, la realidad virtual permite al usuario analizar los datos de manera más útil que los métodos convencionales, como el uso de monitores de PC para visualizar datos, lo que conduce a una mejor toma de decisiones.
+
+
+
+* Además, la tecnología VR actual permite a los usuarios visualizar datos con un alto nivel de detalle y acercarse a los puntos de datos sin perder calidad visual. La presentación de datos en VR también permite una visualización más realista y precisa de las distancias y las relaciones entre los puntos de datos, lo que permite una mejor comprensión de las relaciones dentro de los datos. Esta contextualización, es decir, la superposición de información no espacial sobre una representación espacial, es una característica clave de la realidad virtual.
+
+
+
+* La realidad virtual también permite a los usuarios completar las tareas de visualización de datos deseadas en menos tiempo que los métodos convencionales (Filho et al., 2018), lo que reduce el tiempo necesario para verificar y validar los datos (Akpan y Shanker, 2019) y disminuye el número de errores cometidos (Raja et al., 2004).
+
+
+
+* Por último, la realidad virtual también facilita la colaboración durante el proceso de visualización de datos. Varios usuarios pueden visualizar e interactuar con los mismos datos de forma colaborativa en el mismo entorno de realidad virtual o en diferentes entornos utilizando diferentes sistemas de realidad virtual.
+
+
+
+
+El objetivo final de este proyecto en la fase de implantación (fase 2) es crear una herramienta que tenga cabida en el mundo real, y cuyo uso se pueda democratizar y productivizar a medio plazo, sentando así un precedente de integración de este tipo de innovaciones tecnológicas al sector energético e industrial, ayudando así a la aceptación y popularización de las tecnologías VR en el sector.
+En futuras iteraciones, la plataforma podría incorporar interacciones para iniciar una asistencia remota o contacto directo con distintas entidades (Equipos de mantenimiento, emergencias, etc) para acortar tiempos de solución de incidencias y optimizar los flujos de comunicación internos de la planta.
+
+
+
+
+________________
+
+
+3.        Metodología y fases del proyecto 
+La primera fase del proyecto se inició el día 1 de septiembre de 2022 y finalizó el 29 de abril de  2023, con una duración de 8 meses. En el segundo año este proyecto se iniciará el día 16 de  mayo de 2023 y finalizará el 15 de abril de 2024, con una duración de 11 meses. 
+Se ha utilizado la metodología AGILE con el enfoque de codiseño, para las actividades de desarrollo se adoptó el modelo de desarrollo en espiral, que aprovecha tanto los conceptos descendentes como los ascendentes. En el proceso, el equipo consiguió una buena comprensión de los riesgos del proyecto (que se reevalúan en cada paso) y produjo suficiente control de la documentación para una sólida gestión del proyecto que debe atendió también a las partes interesadas externas (es decir, a otras perspectivas de los usuarios). 
+ Gráfico, Gráfico radial
+
+Descripción generada automáticamente 
+
+Metodología Agile
+El trabajo se llevó a cabo de forma iterativa, con el objetivo de publicar rápidamente las primeras versiones o prototipos y mejorarlas continuamente a partir de los comentarios del equipo. El ciclo de desarrollo iterativo garantizó que todos los aspectos de los requisitos del usuario se incorporen y validen en las soluciones técnicas, mejorando así la aceptación de las tecnologías desarrolladas. Especialmente en el caso de que la adopción por parte del usuario se decida en función de las interfaces de usuario, el modelo de desarrollo en espiral con ciclos iterativos cortos es un requisito previo para la aprobación de estas tecnologías por parte del usuario. Aunque el modelo de desarrollo en espiral tiene como objetivo proporcionar prototipos al final de cada fase de iteración, se han aplicado metodologías ágiles de forma que el resultado de cada fase ha sido de alta calidad y constituye en sí mismo la base de la solución final. De este modo, se producen prototipos utilizables en una fase temprana del ciclo de vida del proyecto, mientras que se pueden añadir funcionalidades adicionales durante todo el proceso. 
+Unas buenas prácticas de desarrollo de software, como la metodología SCRUM, garantizan un código de alta calidad. De acuerdo con las metodologías ágiles, los desarrollos se llevaron a cabo en sprints quincenales. Cada sprint se inició con una breve fase de planificación en la que se establecieron los objetivos del sprint en curso (es decir, la funcionalidad que debe implementarse) sobre la base del backlog existente y los requisitos actualizados. De este modo, fue posible incluir el análisis de los requisitos actualizados mientras la implementación estaba en marcha. Además de las versiones principales que se despliegan en los servidores de producción y son utilizadas por los pilotos, al final de cada sprint se planificaron versiones periódicas en un entorno de ensayo separado. El entorno de ensayo es un entorno similar al de producción en el que el software puede probarse internamente en condiciones similares a las del entorno de producción. Este enfoque proporciono una base sólida para las pruebas de control de calidad. Antes de las versiones de puesta en escena, el equipo de lanzamiento llevo a cabo revisiones del código para garantizar una alta calidad de este proyecto.
+Para el correcto desarrollo del proyecto, se llevaron a cabo las siguientes fases dentro de la metodología a seguir: 
+PRIMERA FASE 
+                ● Fase 1: Gestión y coordinación del proyecto 
+● Fase 2: Consultoría y análisis de proceso de producción (rendimiento) y mantenimiento (correctivo y preventivo) en ISFOC 
+● Fase 3: Análisis de datos de producción, mantenimiento y proceso (históricos y actuales) 
+● Fase 4: Definición de requisitos, casos de uso y arquitectura de la Plataforma de Mantenimiento Predictivo 
+      ● Fase 5: Análisis y definición de sensórica, IoT y Plataforma IoT 
+● Fase 6: Estudio y optimización del algoritmo para mantenimiento predictivo (Análisis de supervivencia) para placas fotovoltaicas, inversores y baterías 
+● Fase 7: Análisis y selección de la tecnología de virtualización que mejor se adapte al objetivo del proyecto 
+● Fase 8: Puesta en común de resultados y análisis de integración entre los diferentes sistemas involucrados en el proyecto (Plataforma IoT, IoT Hub, sensórica, algoritmos de ML y virtualización) 
+● Fase 9: Divulgación de resultados del proyecto 
+SEGUNDA FASE 
+La segunda fase también se divide en 9 Fases y está planteada para iniciar en mayo 2023 y terminar en abril 2024:
+                ● Fase 1: Gestión y coordinación del proyecto 
+● Fase 2: Investigación y análisis de integración del metaverso en Plantas fotovoltaicas
+● Fase 3: Análisis, desarrollo y configuración de equipos en planta fotovoltaica
+● Fase 4: Desarrollo y configuración de Plataforma IoT (dispositivo Edge, Cloud, API DB para visualización virtual de datos e integración con modelo de ML).
+● Fase 5: Implementación del modelo Analítico y de Machine Learning
+● Fase 6: Desarrollo de aplicación Metaverso
+● Fase 7: Instalación y puesta en marcha de plataforma IoT
+● Fase 8: Validación y mejoras del prototipo implantado en planta fotovoltaica
+● Fase 9: Divulgación de resultados del proyecto 
+
+
+Las diferentes tareas en las Fases de este proyecto se desarrollan a continuación: 
+3.1 Fase 1 – Gestión y Coordinación del proyecto. 
+
+
+El objetivo de esta fase fue garantizar la correcta ejecución del proyecto tanto a nivel técnico como económico.
+
+
+Smartech Cluster realizo el seguimiento técnico y económico de este, con el objetivo de detectar posibles desviaciones y solucionarlas con la mayor eficiencia posible. 
+Se realizó una reunión al inicio y finalización del proyecto. También se establecieron reuniones quincenales periódicas (seguimiento del proyecto) a las que, como mínimo, asistieron un representante de cada participante del proyecto. Estas reuniones se realizaron por videoconferencia.
+        
+La actividad de Gestión del proyecto también controlo la entrega dentro del plazo correcto y la calidad de la documentación de los informes técnicos y económicos del proyecto. Así mismo, se siguió el correcto desarrollo del proyecto de acuerdo con el plan de trabajo, cronograma, hitos y objetivos generales del proyecto.  
+
+
+Actividad 1.1 (A0.1) (01/09/2022-29/04/2023): Seguimiento técnico y económico del proyecto.
+Actividad 1.2 (A0.2) (01/09/2022-29/04/2023): Gestión administrativa y técnica.
+
+
+Durante el proyecto se ha realizado una reunión de Kick-Off inicial (ver Anexo Fase 1). A lo largo de los 8 meses de ejecución del proyecto (septiembre 2022 - abril 2023) se han mantenido 13 reuniones de seguimiento telemáticas. Estas reuniones han permitido identificar posibles desviaciones, realizar un seguimiento de las actividades, así como garantizar la correcta comunicación entre el consorcio. Todas las actas de las reuniones pueden visualizarse en los Anexos Fase 1. 
+
+
+3.2 Fase 2: Consultoría y análisis de proceso de producción (rendimiento) y mantenimiento (correctivo y preventivo) en ISFOC. 
+
+
+El objetivo de esta fase fue analizar el estado actual de la tecnología, así como de los procesos de producción y mantenimiento en el sector fotovoltaico (con el ejemplo de ISFOC), para optimizar la información necesaria y facilitar el proceso de implantación de mantenimiento predictivo.
+
+
+El líder de esta fase fue Innova IT trabajando en equipo con ISFOC y Aumenta.
+
+
+En esta fase que tuvo una duración de 2 meses se desarrollaron las siguientes tareas:
+- Análisis del proceso de mantenimiento.
+- Análisis del proceso de producción. 
+- Recogida de datos necesarios para el análisis de consultoría.
+- Análisis de datos generados por los equipos de proceso (estaciones meteorológicas, paneles solares, seguidores y inversores) así como la información general de los componentes existentes y su estado actual.
+-Análisis de los elementos de visualización de los cuadros físicos de control para la creación de un sistema virtual y compartido de visualización. 
+- Resumen del diagnóstico de optimización de los procesos y la información de producción y mantenimiento existente para facilitar la transición a la implementación de mantenimiento predictivo.
+
+
+Actividad 2.1 (A2.1) (01/09/2022-01/10/2022): Análisis del proceso de mantenimiento:
+Actividad 2.2 (A2.2) (01/09/2022-01/10/2022): Análisis del proceso de producción. Análisis de la producción  actual de equipos fotovoltaicos en ISFOC.
+Actividad 2.3 (A2.3) (01/09/2022-01/10/2022): Recogida de datos generados por la planta.
+
+
+Actividad 2.4 (A2.4) (01/09/2022-01/11/2022): Análisis de datos generados por los equipos de proceso (paneles solares, seguidores e inversores) así como la información general de los componentes existentes y su estado actual.
+Actividad 2.5 (A2.5) (01/09/2022-01/11/2022): Análisis de cuadros de mando del sector fotovoltaico.
+Actividad A2.6 (A2.6) (15/10/2022-01/11/2022): Diagnóstico de la consultoría. 
+Ver Anexo Fase 2.
+
+
+3.3 Fase 3: Análisis de datos de producción, mantenimiento y proceso (históricos y actuales) 
+
+
+El objetivo de esta fase fue establecer una línea base de funcionamiento de la instalación, que sirva como punto de partida para el desarrollo de los modelos de Machine Learning. 
+Esta fase tuvo como objetivo la consolidación, cruce y análisis de los datos, tanto históricos como actuales, disponibles, para establecer una línea base de análisis en el funcionamiento de la instalación. Se estudiaron, a partir de los datos, el diferente tipo de fallos que pueden ocurrir en la instalación, a través del análisis descriptivo de los datos.  
+
+
+
+
+ Interfaz de usuario gráfica, Texto, Aplicación, Correo electrónico
+
+Descripción generada automáticamente 
+
+
+
+Almacenamiento de los orígenes de datos creando un Blob Storage de Azure
+
+
+ Interfaz de usuario gráfica, Texto, Aplicación, Correo electrónico
+
+Descripción generada automáticamente 
+
+
+
+Estructura que se le dio a los archivos en el contenedor “blb-placas-dev-westeu-001”
+
+
+Con los datos obtenidos en la fase de consultoría, se complementó el listado de orígenes de datos e indicadores a analizar, que estan clasificados en los siguientes grupos: 
+Datos de producción, como pueden ser los datos tanto de producción de la planta como las variables meteorológicas proporcionadas por la estación instalada en la planta..
+Datos de condiciones del “contexto”, tales como geolicalidad de los seguidores, características de la planta (potencia pico, características técnicas de los módulos, inversores y seguidores),  etc.
+Datos de condiciones de funcionamiento, para establecer las líneas base utilizadas en los trabajos actuales de mantenimiento correctivo y preventivo
+Una vez capturados y consolidados los datos de estos diferentes orígenes, el primer paso en el análisis comprenderá la clasificación de los “Estados de Fallo” de los sistemas actuales, incluyendo los cálculos de:
+Ratio de Rendimiento (PR). De acuerdo con el estándar IEC 61724-1(*) existe un indicador de rendimiento de la planta solar. Este índice representa la eficiencia de la planta, y puede utilizarse para detectar un fallo en la planta.
+Ratio de Rendimiento corregido por el clima (WCPR). En este caso se basa en un índice de rendimiento corregido, que permite reducir las fluctuaciones corrigiendo las pérdidas de temperatura causadas por las celdas de la instalación.
+Eficiencia del inversor y de la planta fotovoltaica.
+Para el desarrollo de las actividades correspondientes a esta fase, se utilizará un ciclo de desarrollo comprendido por:
+El desarrollo de una capa de acceso y tratamiento de los datos de los diferentes orígenes
+Su consolidación en un repositorio central (datalake) con el objetivo de poder disponer de toda la información de modo centralizado y cohesionado
+El desarrollo de un modelo de análisis para cada uno de los casos, así como los informes finales para presentar a los usuarios.
+
+
+El líder de esta fase fue Verne trabajando en equipo con ISFOC e Innova IT.
+
+
+En esta fase que duró 2 meses se desarrollaron las siguientes tareas:
+
+
+Actividad A3.1 (A3.1) (01/10/2022-01/11/2022): Traspaso y puesta en común de la información. 
+Actividad A3.2 (A3.2) (01/10/2022-11/11/2022): Análisis Histórico de datos de mantenimiento y producción. En esta actividad, se desarrollará una solución analítica que describa el histórico de los datos de mantenimiento y Producción
+Actividad A3.3 (A3.3) (14/11/2022-31/12/2022): Análisis de Datos de proceso Actual
+Ver Anexo Fase 3.
+
+
+3.4  Fase 4: Definición de requisitos, casos de uso y arquitectura de la Plataforma de  Mantenimiento Predictivo 
+
+
+El objetivo de esta fase fue realizar una detallada definición de los requisitos, posterior a la captación y análisis de la información en las fases anteriores, para satisfacer las verdaderas necesidades del cliente. 
+
+
+Con los siguientes objetivos: definición de requisitos de usuario y funcionales para la plataforma de Mantenimiento Predictivo, Garantizar que las tecnologías y la plataforma que se va a desarrollar se centren en los usuarios y en los flujos de trabajo y aplicaciones de mantenimiento y producción de instalaciones fotovoltaicas, Definición de los casos de uso que se utilizarán posteriormente para las pruebas de los diferentes pilotos y el Diseño y especificaciones de la arquitectura.
+
+
+El líder de esta fase fue Innova IT trabajando en equipo con ISFOC.
+
+
+En esta fase que duró 1 mes se desarrollaron las siguientes tareas:
+
+
+Actividad 4.1 (A4.1) (01/11/2022-1/12/2022): Definición de requisitos de usuario y funcionales para la plataforma de Mantenimiento Predictivo.
+
+
+Ver Anexo Fase 4.
+
+
+3.5 Fase 5: Análisis y definición de sensórica, IoT y Plataforma IoT 
+El objetivo de esta fase fue analizar y definir las soluciones óptimas a nivel de sensórica, captación de datos IoT y plataforma Cloud, para la implantación de la solución de Mantenimiento Predictivo. El análisis y la definición de la nueva solución se ha planteado[c][d] no de una forma sustitutiva de los sistemas de producción y mantenimiento ya existentes sino complementaria para la optimización del proceso productivo y de mantenimiento ya existente. En lo referente a la sensórica se analizó y seleccionó sensórica con tecnología IoT de bajo consumo y coste, que permita flexibilidad de integración con la plataforma IoT planteada. Respecto al dispositivo IoT Edge se seleccionó un hardware estándar de mercado, de bajo coste, flexible en la programación y en la comunicación con otros sistemas, que implemente las funcionalidades requeridas (módulo colector de datos, módulo almacenaje de históricos,módulo gestión de comunicaciones edge-cloud).
+Respecto al IoT Cloud se definió una solución que implemente las funcionalidades principales requeridas a nivel de gestión de datos y comunicaciones entre sistemas (módulo de comunicaciones con servicios API que permiten un flujo de datos orgánico de entrada, gestión y salida de información dentro de la plataforma IoT a nivel de cloud,módulo general de gestión del aplicativo,módulo de almacenaje e historización de datos,módulo de analítica avanzada).
+El líder de esta fase fue Innova IT trabajando en equipo con ISFOC.
+
+
+En esta fase que tuvo una duración de 3 meses se desarrollaron las siguientes tareas:
+Actividad 5.1 (01/12/2022-1/03/2023) Análisis y selección de la sensórica óptima para la solución de mantenimiento predictivo. Esta actividad se basa en el estudio y selección de la sensórica óptima dentro de los requisitos establecidos en la Fase 4, analizando factores como las características del entorno, tipo de tecnología, distancia de sensado, salida de señal y tipo de alimentación entre otros.
+Actividad 5.2 (01/12/2022-01/03/2023) Análisis y selección del dispositivo IoT Edge y la arquitectura cloud que cumplan las funciones requeridas para la solución de mantenimiento predictivo. Esta actividad se basa en el estudio, selección y definición de capacidades y funcionalidades del dispositivo IoT Edge colector de datos y la arquitectura cloud más óptima dentro de los requisitos establecidos en la fase 4, definiendo características y costes del computador Edge, protocolos de comunicación necesarios ,bases de datos, capacidades de analítica de datos en local y cloud, y funcionalidades de seguridad en la comunicación (detección de desconexiones de sensórica, envío seguro de datos…)  
+Actividad 5.3 (01/12/2022-01/03/2023) Análisis y selección de la arquitectura de plataforma IoT para garantizar la gestión y el continuo control de los distintos sistemas de la solución de mantenimiento predictivo. Esta actividad se basa en el estudio y selección de la plataforma IoT a nivel cloud óptima según los requisitos establecidos en la Fase 4, que cumpla las funciones principales de soporte de las comunicaciones con los colectores de datos IoT, equipos de fotovoltaica y sensores, gestión y adquisición de los datos de manera eficaz y segura y integración con los módulos de Machine Learning y visualización mediante tecnología de virtualización.
+
+
+Ver Anexo Fase 5.
+
+
+3.6 Fase 6: Estudio y optimización del algoritmo para mantenimiento predictivo (Análisis  de supervivencia) para placas fotovoltaicas, inversores y baterías 
+El objetivo de esta fase fue desarrollar y validar un modelo de mantenimiento predictivo, utilizando técnicas de Análisis de Supervivencia, para una instalación fotovoltaica. Incluyendo el análisis de supervivencia es una rama de los algoritmos de Machine Learning, para analizar la duración esperada del tiempo hasta que ocurran uno o más eventos. El método también se conoce como análisis de duración o modelado de duración, análisis de tiempo hasta el evento, análisis de confiabilidad y análisis de historial de eventos. Existen varios métodos utilizados por los investigadores para comprender el tiempo hasta los datos del evento. En esta fase, se desarrolla, los siguientes tipos de modelos y tratar de entender su mecanismo en el tiempo hasta el análisis de eventos:
+* Estimación de Kaplan-Maier (no paramétrica)
+* Modelo de Riesgo Proporcional de Cox (Semi-paramétrico)
+* Modelo de tiempo de fallo acelerado (paramétrico)
+Además, se estudia la viabilidad del desarrollo de otros dos modelos, para complementar el mantenimiento predictivo:
+* Un Modelo que permita la clasificación de los tipos de averías en la instalación, utilizando algoritmos de Machine Learning
+* Un Modelo que permita la detección de anomalías en el funcionamiento de los diferentes componentes de la instalación, también utilizando modelos de Machine Learning.
+El líder de esta fase fue Verne trabajando en equipo con ISFOC.
+
+
+En esta fase que duro 3 meses se desarrollaron las siguientes tareas:
+A6.1 (01/12/2022-01/03/2023): Desarrollo del Modelo de Análisis de Supervivencia: Durante esta actividad se estudia la viabilidad de utilizar un Modelo de Análisis de Supervivencia para anticipar el momento en el tiempo en el que fallará la instalación.
+A6.2 (01/01/2023-01/03/2023): Clasificación Tipo de Averías: En esta actividad se estudia la viabilidad de un modelo de Clustering o de Clasificación, para la agrupación de los tipos de averías, buscando patrones que no sean perceptibles por el análisis descriptivo realizado durante la Fase 4.
+A6.3 (01/02/2023-01/03/2023): Detección de Anomalías: Se desarrolla un modelo de Machine Learning para la detección de anomalías basadas en las líneas de base resultado de la Fase 4
+
+
+Ver Anexo Fase 6.
+
+
+3.7 Fase 7: Análisis y selección de la tecnología de virtualización que mejor se adapte al objetivo del proyecto 
+
+
+El objetivo de esta fase fue la revisión de las tecnologías y del estado del arte de estas para el diseño de un entorno multiusuario (metaverso) en el que confluyen las tecnologías de IoT, ML y RV para la visualización y cooperación de los usuarios. Incluyendo el análisis y selección de los componentes del entorno virtual, incluyendo herramientas de hardware, sensores y actuadores para el posterior desarrollo del centro virtual de control, el análisis y selección de herramientas de desarrollo de contenidos para la creación de objetos 3D, elementos holográficos volumétricos y avatares para los escenarios virtuales de visualización y el análisis, selección y diseño de la arquitectura funcional del sistema VR/AR/Metaverso para la visualización compartida de datos en entorno virtual. 
+El líder de esta fase fue Aumenta trabajando en equipo con ISFOC, Innova IT.
+
+
+En esta fase que duro 4 meses se desarrollaron las siguientes tareas:
+A7.1 (01/12/2022-01/04/2023): Definición, taxonomía y componentes del entorno virtual (Metaverso)
+En esta tarea se definen los componentes participantes del entorno virtual para poder analizar con detalle las necesidades del proyecto. Se estudia la mejor forma de visualización, y los objetivos perseguidos para que, en las posteriores fases, se defina con más detalle técnico de cómo se implementarán.
+A7.2 (01/12/2022-01/04/2023): Análisis de Frameworks y SDK para la creación del escenario virtual/Aumentado (Metaverso) 
+Durante esta tarea, se estudian y prueban los diferentes SDKs (Software Development Kit - Kit de desarrollo de software) existentes en el mercado que guarden relación con las necesidades el proyecto, como los de generación de entornos virtuales, diferentes sistemas de control multiusuario, sistemas de audio y gestión de la interacción entre usuarios relacionados con el metaverso.
+A7.3 (01/12/2022-01/04/2023): Análisis de Interoperabilidad entre plataformas virtuales
+Se revisa con detalle la conexión entre las distintas plataformas para que todas las tecnologías confluyan en el flujo e idea del proyecto. Tras un análisis de las plataformas, se tendrán conclusiones sobre las mejores formas y protocolos para acceder a las APIs (Application Program Interface - Interfax de programación de aplicaciones) que conectarán el entorno virtual con el real, como en un planteamiento de gemelo digital.
+A7.4 (01/12/2022-01/04/2023): Análisis de pasarelas de datos IOT/AI/MR 
+En esta fase, se realiza un análisis exhaustivo de las diferentes pasarelas de datos relacionado con las otras tecnologías interconectadas con el sistema.
+Así mismo, se revisan los formatos de los protocolos de comunicación más adecuados para el entorno virtual y que se adapten al hardware utilizado.
+A7.5 (01/12/2022-01/04/2023): Análisis de contenidos En esta tarea, se analizan los contenidos multimedia necesarios para la ejecución del proyecto y la dinámica de interacción con ellos. Asimismo, se revisan los formatos gráficos a usar teniendo en cuenta los estándares de la industria, así como la compatibilidad con el hardware seleccionado para el proyecto.
+A7.6 (01/12/2022-01/04/2023): Arquitectura funcional del sistema Esta tarea consiste en diseñar la arquitectura del sistema a partir de los análisis previos de necesidades del proyecto, como la ergonomía de la plataforma, la interacción en el entorno gráfico, la conexión con las distintas plataformas y tecnologías relacionadas con el proyecto. De la misma manera, se analiza con detalle el hardware a usar en el desarrollo e implementación del proyecto.
+
+
+  
+
+
+
+Prototipo de la sala de control en el Metaverso
+
+
+*  Imagen de la pantalla de un computador
+
+Descripción generada automáticamente con confianza baja 
+
+Detalle del área de control de monitorización
+
+
+ Interfaz de usuario gráfica
+
+Descripción generada automáticamente 
+
+Visualización paneles 1 y 2. Alertas, alarmas y KPI’s
+
+
+ Imagen de la pantalla de un video juego
+
+Descripción generada automáticamente con confianza media 
+
+Visualización Panel 3. Gráficos de anomalías y producción
+Mediante la implantación de cámaras 360 y el envío por streaming de la señal de video equirectangular se podrá tener visión 360º de la planta en tiempo real en el Metaverso.
+
+
+ Interfaz de usuario gráfica
+
+Descripción generada automáticamente 
+
+Visualización 360º de la planta
+
+
+Para la visualización del simulador de Metaverso solar hay que darse de alta en Spatial (https://www.spatial.io/), y después entrar en el link siguiente:
+https://www.spatial.io/s/Tech_Aumentasolutionss-Solar-Metaverse-64245072701e44cfac8f6ce7?share=2130068473821069955
+
+
+Ver Anexo Fase 7.
+
+
+3.8 Fase 8: Puesta en común de resultados y análisis de integración entre los diferentes sistemas involucrados en el proyecto (Plataforma IoT, IoT Hub, sensórica, algoritmos de ML y virtualización) 
+
+
+El objetivo de esta fase fue crear un documento funcional que sintetice la Integración entre los diferentes sistemas de información que componen la plataforma de mantenimiento predictivo. Considerando la descripción de las especificaciones de integración de dispositivos Edge, sensores y equipos, con el Cloud dentro de la plataforma IoT, la definición de las especificaciones de integración de la plataforma IoT con módulos de Machine Learning y la definición de las especificaciones de la API para la integración de la plataforma IoT con sistema de visualización mediante virtualización.
+
+
+El líder de esta fase fue Innova IT trabajando en equipo con ISFOC, Verne.
+
+
+En esta fase que duro 3 meses se desarrollaron las siguientes tareas:
+A8.1 (01/04/2022 - 30/04/2023): Definición de las especificaciones de integración dispositivos Edge, sensores y equipos de fotovoltaica, con el Cloud dentro de la plataforma IoT.
+A8.2 (01/04/2022 - 30/04/2023): Definición de las especificaciones de integración de la plataforma IoT con módulos de Machine Learning.
+A8.3 (01/04/2022 - 30/04/2023): Definición de las especificaciones de la API para la integración de la plataforma IoT con sistema de visualización mediante virtualización.
+A8.4 (01/04/2022 - 30/04/2023): Resumen del análisis de integración entre los diferentes sistemas de información de la plataforma de Mantenimiento Predictivo.
+
+
+Ver Anexo Fase 8.
+
+
+3.9 Fase 9: Divulgación de resultados del proyecto 
+
+
+El objetivo de esta fase fue la divulgación y diseminación de los resultados tanto parciales como globales del proyecto. Esta fase incluyó llevar a cabo el seguimiento durante todo el desarrollo del proyecto. Su principal objetivo fue la divulgación de los resultados y los avances del proyecto a través de la elaboración y envío de notas de prensa a medios de comunicación especializados, la publicación de novedades del proyecto a través de redes sociales, la organización de una jornada de presentación de los resultados finales del proyecto y la creación y mantenimiento de una página web del proyecto
+
+
+El líder de esta fase fue Smartech y Solartys trabajando en equipo con Innova IT, Verne, ISFOC y Aumenta.
+
+
+En esta fase que duro 8 meses. En todo proyecto es muy importante realizar una tarea constante de diseminación y visualización de los diferentes resultados que se han obtenido a lo largo de su desarrollo, de manera que los “stakeholders” puedan realizar un correcto seguimiento de este. Smartech Cluster, como responsable y líder de dicha fase, se ha encargado de la correcta ejecución de esta fase. Para lograr el objetivo global de hacer una comunicación efectiva, la novena Fase del proyecto se ha subdividido en las siguientes tareas:
+Difusión y Comunicación
+* Elaboración y envío de notas de prensa a medios de comunicación especializados.  Se elaborarán las notas de prensa sobre el proyecto y serán enviadas a los medios de comunicación específicos:
+* El proyecto El "metaverso para instalaciones fotovoltaicas" permitirá realizar un mantenimiento predictivo”, publicado en Energética, Dinamo técnica y Solarinfo , es posible ver la publicación en los siguientes enlaces: https://www.energetica21.com/noticia/el-metaverso-para-instalaciones-fotovoltaicas-permitira-realizar-un-mantenimiento-predictivo
+* https://dinamotecnica.es/2023/01/soluciones-de-mantenimiento-predictivo-para-instalaciones-fotovoltaicas-en-el-metaverso.html
+* https://www.solarinfo.es/2023/01/26/proyecto-metaverso-instalaciones-fotovoltaicas-permitira-realizar-mantenimiento-predictivo
+
+
+* El proyecto " Metaverso para instalaciones fotovoltaicas: una solución de mantenimiento predictivo en un entorno virtual colaborativo”, publicado en Energética, es posible ver la publicación en el siguiente enlace: https://www.energetica21.com/require/revistas-digitales/144/pdf/magazine.pdf
+
+
+* Publicación de novedades del proyecto a través de redes sociales. De forma periódica, se irán actualizando las novedades y avances del proyecto a través de las Redes Sociales (Twitter, LinkedIn...), cada uno de los participantes del consorcio se encargará de distribuir al mismo tiempo dichas noticias o publicaciones en sus redes sociales con el fin de conseguir más impacto.
+
+
+
+
+El 4 de noviembre del 2022, se publicó en LinkedIn el kick off del proyecto METAVERSO es posible ver la publicación en el siguiente enlace: 
+
+
+LinkedIn: https://www.linkedin.com/feed/update/urn:li:activity:6994266113190572032
+
+
+ Interfaz de usuario gráfica, Texto, Aplicación
+
+Descripción generada automáticamente 
+
+Kick off del proyecto METAVERSO
+
+
+El 27 de diciembre del 2022, se publicó en LinkedIn el seguimiento del proyecto METAVERSO, es posible ver la publicación en el siguiente enlace: 
+
+
+LinkedIn: https://www.linkedin.com/feed/update/urn:li:activity:7013423700364419072/
+
+
+El 3 de abril del 2023, se publicó en LinkedIn el seguimiento del proyecto METAVERSO es posible ver la publicación en el siguiente enlace: 
+
+
+LinkedIn: https://www.linkedin.com/feed/update/urn:li:activity:7048566802280292352
+
+
+El 25 de abril del 2023, se publicó en LinkedIn el video divulgativo final del proyecto METAVERSO, es posible ver la publicación en el siguiente enlace: 
+
+
+LinkedIn: 
+https://www.linkedin.com/feed/update/urn:li:activity:7056533778042621952
+
+
+* Organización de una jornada de presentación de los resultados finales del proyecto. Se organizó una jornada el 26 de abril del 2023 dónde participaron todos los miembros del consorcio y más de 60 asistentes, en dicha jornada se presentaron los resultados del proyecto, cada miembro hablo de su trabajo realizado, y en conjunto de los resultados obtenidos.
+
+
+
+
+ Interfaz de usuario gráfica, Sitio web
+
+Descripción generada automáticamente 
+
+Jornada de resultados del proyecto METAVERSO
+ Imagen que contiene Interfaz de usuario gráfica
+
+Descripción generada automáticamente 
+
+
+
+Imagen de la Jornada de resultados del proyecto METAVERSO
+
+
+ Interfaz de usuario gráfica, Aplicación
+
+Descripción generada automáticamente 
+
+
+
+Imagen de la Jornada de resultados del proyecto POWERTWIN
+
+
+* Creación y mantenimiento de la página web del proyecto. De cara a ir albergando toda la información relativa al proyecto, se creará una página web, dónde se irán colgando las novedades a modo blog, y todos los aspectos relativos al proyecto.
+
+
+Se creo una página web del proyecto, es posible verla en el siguiente enlace: https://smartechcluster.org/es/proyecto-metaverso-de-instalaciones-fotovoltaicas/
++ Interfaz de usuario gráfica, Sitio web
+
+Descripción generada automáticamente 
+
+
+
+
+Página web del proyecto METAVERSO
+
+
+* Elaboración de un vídeo divulgativo que muestra el desarrollo y los resultados del proyecto. Por último, se elaboró un vídeo divulgativo con el alcance del proyecto, los componentes de este y sus resultados. Este vídeo esta colgado en la página web del proyecto, así como distribuido por las redes sociales adecuadamente, como por ejemplo YouTube y LinkedIn. El enlace al video de YouTube es el siguiente: https://www.youtube.com/watch?v=4DMZFDP74aI
+
+
+
+
+ Interfaz de usuario gráfica, Sitio web
+
+Descripción generada automáticamente 
+
+Video divulgativo del proyecto METAVERSO
+
+
+* Presentación del proyecto en la feria BxCAT. Ponencia feria Feria Catalana de Blockchain y Metaverso organizada por el CBCat - Centre Blockchain de Catalunya: Agustí Padrós Rios presentó en el auditorio a las 12:45h el 17 de mayo, el proyecto Metaverso dentro de la ponencia llamada “Mejorando la toma de decisiones con #metaverso y #blockchain: casos reales”. Video Youtube de la ponencia: https://www.youtube.com/watch?v=Xj022EFDRhc&t=3s
+
+
+ Interfaz de usuario gráfica
+
+Descripción generada automáticamente con confianza media 
+
+
+
+Ponencia en la feria BxCAT 2023
+
+
+
+
+
+
+
+
+
+
+* Presentación del proyecto en la feria Transfiere. En la feria Transfiere en Málaga a las 18 horas el 16 de febrero 2023, Agustí Padrós Rios, Project Manager del clúster, presentó el Proyecto Metaverso dentro de la ponencia "Mejorando la toma de decisiones con Gemelos Digitales y el Metaverso: casos reales", en la sala de conferencias 2.1 del foro.
+
+
+ Un grupo de personas frente a una televisión encendida
+
+Descripción generada automáticamente con confianza media 
+
+
+
+Ponencia en la feria Transfiere 2023
+
+
+
+
+4. Resultados obtenidos
+La necesidad existente de implantar el mantenimiento predictivo en instalaciones fotovoltaicas de una manera eficiente para minimizar fallos y optimizar el rendimiento en la producción, pasa por adaptar los datos existentes de producción y mantenimiento de las plantas fotovoltaicas a una estructura estándar de datos que permita implantar algoritmos de analítica avanzada y Machine Learning ya entrenados. 
+Tras el estudio realizado de los sistemas de producción y mantenimiento implantados actuales en la mayoría de plantas fotovoltaicas (sistemas SCADA de producción, sistemas GMAO y aplicaciones específicas de gestión de activos así como hojas excels de mantenimiento correctivo y preventivo), se ha definido una solución no sustitutiva sino complementaria a estos sistemas que permita la optimización del rendimiento de la producción,la disponibilidad de equipos mediante la aplicación de tecnología IoT y modelos de Machine Learning así como la integración de servicios API para habilitar de manera sencilla el consumo de los datos generados de  analítica avanzada por soluciones de visualización en Metaverso y/o herramientas de BI.
+
+
+En este sentido la implantación de una plataforma IoT se presenta como la solución óptima para ofrecer un salto cualitativo en la digitalización del mantenimiento predictivo, la optimización de la producción en este tipo de instalaciones y la gestión óptima de la información generada para el control, análisis y supervisión de plantas fotovoltaicas.
+Para realizar esta integración de la plataforma IoT de manera óptima, se ha definido un proceso de implantación estándar que establece tres fases. 
+* Una primera fase de Consultoría donde se analizan los datos, equipos y sensores existentes de las plantas fotovoltaicas.
+* Una segunda fase de Implantación de la plataforma IoT con modelos de Machine Learning ya entrenados (predicción de fallos, detección de anomalías y correlación de variables) y la adaptación de los datos de los equipos, de mantenimiento así como de la sensórica necesaria.
+* Una tercera fase de Mejora Continua donde se reajustan los modelos de Machine Learning para optimizar el rendimiento de los resultados predictivos.
+
+
+ Imagen que contiene Escala de tiempo
+
+Descripción generada automáticamente 
+
+Proceso de implantación de solución de mantenimiento predictivo
+Uno de los puntos detectados ha sido que no existe una forma fácil de analizar todos las métricas y KPI 's existentes actualmente en las instalaciones fotovoltaicas de forma unificada, ya que, normalmente, se disponen de diferentes plataformas y sistemas no consolidados. Estas circunstancias impiden que se pueda tener una visión analítica extensa y temporalizada que permita optimizar el rendimiento de las plantas, mediante el análisis de todas las variables disponibles. 
+Con respecto a esta problemática a la hora de obtener datos de valor por falta de sincronización entre sistemas, se ha planteado una estandarización de la estructura de datos a explotar por los modelos de Machine Learning definiéndose los KPI’s principales para la monitorización de plantas fotovoltaicas (%PR, Eficiencia del sistema) así como las métricas necesarias para definir la sensorización de paneles fotovoltaicos (temperatura superficial del panel, grado de suciedad del panel e intensidad del ramal) así como termográfica e imágenes visibles que permiten categorizar y predecir problemas en los módulos fotovoltaicos cuya incidencia afectaría directamente a la producción de la planta fotovoltaica.
+Mediante la tecnología IoT de plataforma (edge -cloud), se ha diseñado una solución en que la integración de un dispositivo Edge permita habilitar comunicaciones con el sistema Scada-PLC de planta (punto recolector de datos de la estación meteorológica, los inversores y los módulos seguidores) para extraer y gestionar datos en tiempo real de los equipos así como alarmas y fallos para optimizar la información necesaria para la correcta predicción de fallos por los modelos de Machine Learning. Esta información va a ser complementada por información de los paneles fotovoltaicos (actualmente no existente) mediante la integración de redes LoRa necesarias para recolectar datos de los paneles fotovoltaicos (temperatura superficial, suciedad e intensidad) que permitan una mayor profundidad de análisis a nivel de rendimiento de planta y disponibilidad de equipos.
+El dispositivo Edge será el encargado de enviar la información al cloud, que se encargará de la normalización de datos y aplicación de los modelos de Machine Learning ya entrenados, sirviendo los datos vía API para ser consumidos por sistemas de análisis y monitorización de datos como cuadros de mando de BI operacional y el Metaverso.
+ Diagrama
+
+Descripción generada automáticamente 
+
+Arquitectura Software y hardware de plataforma de mantenimiento predictivo
+En cuanto a la plataforma de visualización en el Metaverso, en la fase anterior se desestimó la posibilidad de utilizar herramientas genéricas de Metaverso debido a que ninguna de ellas cumplia con los requerimientos esperandos, en este sentido se opta por la creación de un Metaverso ad-hoc integrando  diferentes herramientas de software para permitir la visualización en VR de forma compartida de los datos externos de sensores, alarmas y alertas.
+Además, en esta segunda fase se incluye la posibilidad de visualizar el entorno en tiempo real mediante cámaras 360º y la visualización de termografía de los módulos.
+Tal como se muestra en la figura siguiente la arquitectura funcional para esta segunda fase del proyecto se basa en la integración de módulos de software para permitir la realización de un escenario virtual compartido.
+En este sentido se emplea la plataforma de desarrollo Unity como núcleo central para la creación de escenarios, animaciones y visualización de datos, añadiendo conexiones para plataformas de creación de contenido y avatares. (3D Max, Blender, Union Avatars)
+La realización del entorno multiusuario se realizará mediante conexión a la plataforma Photon PUN.
+Para la visualización de información en el entorno Unity serán necesarias pasarelas de datos entre las API desarrollada por Innova IT para la recepción de las variables de los sensores IoT y conexión de streaming a las cámaras 360º en campo.
+ Interfaz de usuario gráfica, Diagrama
+
+Descripción generada automáticamente 
+
+ Interfaz de usuario gráfica, Texto, Aplicación
+
+Descripción generada automáticamente 
+
+Arquitectura de la plataforma de Metaverso
+
+
+Como resultado final en esta primera fase y reto abordar en la fase II planteada en este proyecto, se define el alcance del proyecto piloto de la plataforma de Mantenimiento Predictivo en Metaverso abordar.
+El proyecto piloto abarcará la implantación de la nueva plataforma para la planta fotovoltaica 4 ubicada en las instalaciones de ISFOC en Puertollano. Estará compuesta por un inversor, 8 seguidores y 1 dispositivo IoT (nuevo desarrollo a realizar en la fase II). Además, asociada a la planta, se encuentra instalada una estación meteorológica que proporcionará datos de radiación, temperatura, humedad, viento y lluvia.
+
+
+ Imagen que contiene edificio, camioneta, coche, pista
+
+Descripción generada automáticamente 
+
+Layout de la planta de ISFOC para la prueba piloto
+De acuerdo con los objetivos propuestos en el planteamiento del proyecto, en la siguiente tabla se resume su resultado.
+Objetivo
+	Si/No
+	Métrica de medición 
+	Definir la mejor estrategia de implementación de mantenimiento predictivo a partir del análisis y detección de puntos de mejora del proceso de producción y mantenimiento en instalaciones fotovoltaicas, con un estudio del estado actual del sector fotovoltaico en general y una consultoría de digitalización y procesos en ISFOC (Instituto de Sistemas
+Fotovoltaicos de Concentración) en particular.
+	SI
+	Se ha detectado la necesidad de implementar una metodología de implantación de la plataforma de mantenimiento predictivo en Metaverso, para estandarizar datos y agilizar la implantación de analítica avanzada para el mantenimiento predictivo. Esta consta de 3 fases definidas (1 º fase de consultoría para analizar equipos, sensores y datos de planta, 2º fase de implantación de la plataforma IoT y la sensórica necesaria y una 3º fase de reajuste de modelos de ML para implantar la mejora continua).
+La lista de principales KPIs a considerar para el cumplimiento de este objetivo son:
+-Tiempo de implantación de la solución de mantenimiento predictivo (tiempo de consultoría, sensorización e implantación de plataforma IoT con modelos de ML ya entrenados).
+-Grado del impacto de la implantación en instalaciones existentes a nivel de disponibilidad de planta.
+-Grado de utilización de la información de las herramientas de producción y mantenimiento ya existentes.
+-% Cambio de equipos, sensores y software ya existentes.
+-Grado de implementación de sensórica necesaria.   
+	Analizar el estado del arte de sensórica IoT en general y en el sector fotovoltaico en particular para definir los requerimientos, funcionalidades necesarias y la mejor estrategia de implantación de sensorización en los equipos involucrados en la generación de energía (paneles fotovoltaicos, baterías e inversores) en las instalaciones fotovoltaicas para la implantación de una óptima solución de mantenimiento predictivo.
+	SI
+	Se ha detectado la necesidad de analizar las pérdidas en el rendimiento de la producción de planta fotovoltaica. Para complementar la información ya obtenida del sistema de producción (SCADA/PLC) se requiere la necesidad de sensorización de los paneles fotovoltaicos con sensores de temperatura superficial, detección de suciedad e intensidad de rama.
+La lista de principales KPIs a monitorizar respecto a la eficiencia en la producción son el %PR (Performance Ratio de planta fotovoltaica y la eficiencia del inversor).
+Los principales KPI’s a considerar respecto a la sensórica son el precio, el consumo energético y la conectividad con sistemas emisores LoRa y dispositivos IoTEdge. 
+	Analizar el estado del arte de las plataformas IoT en general y en el sector fotovoltaico en particular para definir los requerimientos, funcionalidades necesarias y la mejor estrategia para el diseño y desarrollo de la plataforma IoT en las instalaciones fotovoltaicas para la implantación de una óptima solución de mantenimiento predictivo.
+	 SI
+	Se ha detectado la necesidad de implementar una plataforma IoT Edge-cloud con los requerimientos de facilidad de implantación, coste reducido y versatilidad en funcionalidades a nivel de módulos de comunicación, almacenaje y analítica avanzada de datos. La función principal de la plataforma de mantenimiento predictivo no es el de substituir a sistemas de producción y mantenimiento ya existentes en plantas fotovoltaicas, sino es la de optimizarlos para facilitar su integración con otros sistemas de gestión, y ofrecerles la capacidad de analítica de datos avanzada.
+Los principales KPI’s a considerar en la definición de la plataforma IOT son:
+-IoTEdge:
+    -  Controlador IoT basado en soluciones Raspberry Pi.
+    -  Nº de protocolos de comunicación integrados.
+     - Control de la seguridad en las comunicaciones.
+    -  Capacidad de gestión por número de sensores IoT.
+    -  Capacidad de rendimiento en la extracción de datos.
+    -  Capacidad de almacenaje e historización de datos.
+    -  Capacidad de rendimiento en el envío de datos.
+    -  Capacidad de control en la integridad de datos.
+-IoTCloud:
+     - Control de la seguridad en la gestión de datos.
+    -  Nº de protocolos de comunicación integrados.
+    -  Capacidad de gestión por número de equipos Edge.  
+    -  Capacidad de almacenaje e historización de datos.
+    -  Capacidad de analítica avanzada de datos.
+    - Capacidad de integración con herramientas digitales:
+           -  Gestión de negocio (ERP)
+           -  Mantenimiento (GMAO)
+           -  Cuadros de mando (BI operacionales) 
+           -  Sistemas de información basados en Metaverso
+	Desarrollar y validar un modelo de Machine Learning para mantenimiento predictivo, utilizando técnicas de Análisis de Supervivencia, para una instalación fotovoltaica a partir
+del análisis de los datos reales de producción, mantenimiento y proceso de ISFOC complementados con un estudio general de proceso de mantenimiento del sector fotovoltaico y una consultoría de digitalización y proceso para ISFOC en particular.
+	SI
+	Estados de fallo:
+Ratio de Rendimiento (PR).
+Ratio de Rendimiento corregido por el clima (WCPR)
+Análisis del dato:
+EDA 
+Estudio de correlación de variables-> 
+Tipos de modelo:
+Estimación de Kaplan-Maier (no paramétrica)
+Modelo de Riesgo Proporcional de Cox (Semi-paramétrico)
+Modelo de tiempo de fallo acelerado (paramétrico) 
+	Analizar los cuadros y salas de mando físicas a nivel de información y usabilidad en instalaciones fotovoltaicas, así como el estado actual de la tecnología de visualización virtual para definir las requerimientos, funcionalidades, diseño y etapas de desarrollo para la implementación de una aplicación de visualización virtual de mantenimiento predictivo para un cuadro de mando de una instalación fotovoltaica.
+	SI
+	Resolución efectiva de los escenarios
+Resolución efectiva de imagen en el escenario virtual
+Resolución efectiva tipos textos en el escenario virtual
+Número máximo de avatares posibles 
+Tiempos de acceso a sistema multijugador
+Delay de acceso a multijugador
+Número máximo de pantallas
+Número máximo de datos disponibles 
+Frecuencia de recepción de datos
+Máximo Lagging permitido
+Fps de funcionamiento
+Tipos de gráficos temporales disponibles
+Protocolos de acceso a streaming aplicados
+Ancho de banda necesario para streaming 3D
+Máximo número de cámaras 3D por campo
+
+
+	
+
+5. Conclusiones
+El proyecto Plataforma de mantenimiento predictivo para monitorización virtual en el metaverso de instalaciones fotovoltaicas ha permitido obtener nuevos conocimientos en el ámbito de la gestión más eficiente de las plantas solares: El sistema de inteligencia y predicción que Innova IT, ISFOC, Verne, y Aumenta han desarrollado permite tener múltiples herramientas de toma de decisiones ante posibles situaciones críticas, o simplemente para optimizar y mejorar el uso de los recursos disponibles. De esta forma, cualquier instalación fotovoltaica puede apoyarse de tecnologías punteras como el metaverso y la inteligencia artificial para mejorar la sostenibilidad de la planta. 
+Este proyecto piloto en la planta de ISFOC, ha sentado las bases para futuros desarrollos más avanzados. Con esta propuesta de proyecto se dispondrá de una interfaz parametrizable, a través de la plataforma que permite representar diversos escenarios de estudio y predicción. Dichos escenarios en un futuro pueden ser utilizados para reducir y optimizar el coste por acción de mantenimiento óptima (fallo previsto en un tiempo definido), minimizando los costes por fallo no planificado (mantenimiento correctivo) así como los costes derivados por sobre mantenimiento (mantenimiento preventivo) y para mejorar su toma de decisiones en la gestión y operación de la instalación. En definitiva, el proyecto Plataforma de mantenimiento predictivo para monitorización virtual en el metaverso de instalaciones fotovoltaicas ha desarrollado una metodología de prevención y mantenimiento correctivo que facilitará la gestión de instalaciones, recursos y formación en instalaciones fotovoltaicas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. Diagrama de Gantt Tabla
+
+Descripción generada automáticamente 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7. Memoria económica
+8. Memoria de desviaciones
+9. Anexos
+A continuación, se adjunta la documentación adicional para acreditar la realización de la actuación subvencionada. 
+Concretamente, se adjuntan los siguientes anexos:
+* Anexo Fase 1:
+* Acta de la reunión de Kick-off del proyecto
+* Acta de la reunión del 26/10
+* Acta de la reunión del 4/11
+* Acta de la reunión del 21/11
+* Acta de la reunión del 02/12
+* Acta de la reunión del 19/12
+* Acta de la reunión del 13/01
+* Acta de la reunión del 27/01
+* Acta de la reunión del 10/02
+* Acta de la reunión del 23/02
+* Acta de la reunión del 10/03
+* Acta de la reunión del 23/03
+* Acta de la reunión del 14/04
+* Anexo Fase 2
+* Anexo Fase 3
+* Anexo Fase 4
+* Anexo Fase 5
+* Anexo Fase 6
+* Anexo Fase 7
+* Anexo Fase 8
+* Anexo Nota de prensa inicial del proyecto
+* Anexo Nota de prensa sobre los resultados del proyecto
+* Anexo Guion del vídeo Plataforma de mantenimiento predictivo para monitorización virtual en el metaverso de instalaciones fotovoltaicas
+
+
+
+
+
+
+
+
+
+
+
+
+[a]Yo pondría se alcanzarón
+[b]Falta el punto
+[c]Estoy leyendo este párrafo y no tiene sentido.
+[d]Hola, ya he revisado y modificado esta parte.
